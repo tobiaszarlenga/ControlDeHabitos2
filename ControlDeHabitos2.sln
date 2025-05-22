@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36109.1 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlDeHabitos2.API", "ControlDeHabitos2.API\ControlDeHabitos2.API.csproj", "{2A03DE56-EA02-4057-ABDE-9F69AC0C995D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlDeHabitos2.Desktop", "ControlDeHabitos2.Desktop\ControlDeHabitos2.Desktop.csproj", "{C7C3A2BD-4AB7-434E-BC5B-7FACBE0E5619}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2A03DE56-EA02-4057-ABDE-9F69AC0C995D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A03DE56-EA02-4057-ABDE-9F69AC0C995D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A03DE56-EA02-4057-ABDE-9F69AC0C995D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A03DE56-EA02-4057-ABDE-9F69AC0C995D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7C3A2BD-4AB7-434E-BC5B-7FACBE0E5619}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7C3A2BD-4AB7-434E-BC5B-7FACBE0E5619}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7C3A2BD-4AB7-434E-BC5B-7FACBE0E5619}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7C3A2BD-4AB7-434E-BC5B-7FACBE0E5619}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69CA549C-0AE7-4668-9F0B-837B042437A1}
+	EndGlobalSection
+EndGlobal
