@@ -1,28 +1,31 @@
 using ControlDeHabitos2.API.Interfaces;
 using ControlDeHabitos2.API.Services;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddSingleton<IHabitoService, HabitoService>();
-
-
+// Add services to the container
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+builder.Services.AddEndpointsApiExplorer(); // Necesario para Swagger
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "ControlDeHabitos2.API", Version = "v1" });
+});
+
+builder.Services.AddSingleton<IHabitoService, HabitoService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();       // Middleware Swagger
+    app.UseSwaggerUI();     // Interfaz Swagger
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();
