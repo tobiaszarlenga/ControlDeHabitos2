@@ -1,4 +1,6 @@
 ﻿using ControlDeHabitos2.API.Interfaces;
+using ControlDeHabitos2.API.Models;
+
 
 namespace ControlDeHabitos2.API.Services
 {
@@ -19,7 +21,7 @@ namespace ControlDeHabitos2.API.Services
         {
             nuevoHabito.Id = _siguienteId++;
             nuevoHabito.FechaCreacion = DateTime.Now;
-            _habito.Add(nuevoHabito);
+            _habitos.Add(nuevoHabito);
         }
         public void Actualizar(Habito habitoActualizado)
         {
@@ -43,5 +45,10 @@ namespace ControlDeHabitos2.API.Services
                 _habitos.Remove(habito);
          
                 }
+
+        public void Eliminar(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

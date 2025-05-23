@@ -2,7 +2,7 @@
 
 namespace ControlDeHabitos2.API.Interfaces
 {
-    public class IHabitoService
+    public interface IHabitoService
     {
         List<Habito> ObtenerTodos();
         Habito? ObtenerPorId(int id);

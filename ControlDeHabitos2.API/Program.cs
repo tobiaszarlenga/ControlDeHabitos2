@@ -1,6 +1,11 @@
+using ControlDeHabitos2.API.Interfaces;
+using ControlDeHabitos2.API.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddSingleton<IHabitoService, HabitoService>();
+
 
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
