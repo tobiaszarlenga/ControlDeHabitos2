@@ -38,7 +38,7 @@ namespace ControlDeHabitos2.API.Services
             existente.FechaUltimaCompletacion = habitoActualizado.FechaUltimaCompletacion;
 
         }
-        public void Eliminarj(int id)
+        public void Eliminar(int id)
         { 
             var habito = ObtenerPorId(id);
             if (habito is not null)
@@ -46,9 +46,6 @@ namespace ControlDeHabitos2.API.Services
          
                 }
 
-        public void Eliminar(int id)
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }
