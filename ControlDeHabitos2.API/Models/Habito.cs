@@ -13,7 +13,9 @@
             public bool EstaCompletoHoy { get; set; }              
             public int DiasCompletados { get; set; }               
             public DateTime FechaCreacion { get; set; }            
-            public DateTime? FechaUltimaCompletacion { get; set; } 
+            public DateTime? FechaUltimaCompletacion { get; set; }
+            public int UsuarioId { get; set; }
+
         
 
 }
