@@ -6,6 +6,8 @@ namespace ControlDeHabitos2.Desktop
 {
     public partial class Form1 : Form
     {
+        private Habito? habitoSeleccionado;
+
         public Form1()
         {
             InitializeComponent();
@@ -113,7 +115,7 @@ namespace ControlDeHabitos2.Desktop
 
         }
 
-        private async void button2_Click(object sender, EventArgs e)
+        private async void btnEliminar_Click(object sender, EventArgs e)
         {
             if (dataGridView1.CurrentRow == null)
             {
@@ -174,7 +176,7 @@ namespace ControlDeHabitos2.Desktop
                 return;
             }
 
-            // Actualizamos los datos del hábito con lo que el usuario escribió en los inputs
+            
             habitoSeleccionado.Nombre = txtNombre.Text;
             habitoSeleccionado.Descripcion = txtDescripcion.Text;
             habitoSeleccionado.FrecuenciaPorSemana = (int)nudFrecuencia.Value;
@@ -199,7 +201,7 @@ namespace ControlDeHabitos2.Desktop
                 if (response.IsSuccessStatusCode)
                 {
                     MessageBox.Show("Hábito actualizado correctamente.");
-                    await CargarHabitos(); // Método que refresca el DataGridView
+                    await CargarHabitos();
                 }
                 else
                 {
@@ -209,6 +211,25 @@ namespace ControlDeHabitos2.Desktop
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}");
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                
+                var habitoSeleccionado = dataGridView1.Rows[e.RowIndex].DataBoundItem as Habito;
+                if (habitoSeleccionado == null) return; 
+
+                
+                txtNombre.Text = habitoSeleccionado.Nombre;
+                txtDescripcion.Text = habitoSeleccionado.Descripcion;
+                nudFrecuencia.Value = habitoSeleccionado.FrecuenciaPorSemana;
+                txtHoraObjetivo.Text = habitoSeleccionado.HoraObjetivo?.ToString() ?? "";
+
+               
+                this.habitoSeleccionado = habitoSeleccionado;
             }
         }
 

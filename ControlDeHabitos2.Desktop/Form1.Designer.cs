@@ -48,19 +48,19 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(420, 203);
-            dataGridView1.Margin = new Padding(4, 5, 4, 5);
+            dataGridView1.Location = new Point(294, 122);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(683, 250);
+            dataGridView1.Size = new Size(478, 150);
             dataGridView1.TabIndex = 0;
+          
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // btnCargar
             // 
-            btnCargar.Location = new Point(420, 136);
-            btnCargar.Margin = new Padding(4, 5, 4, 5);
+            btnCargar.Location = new Point(294, 82);
             btnCargar.Name = "btnCargar";
-            btnCargar.Size = new Size(147, 38);
+            btnCargar.Size = new Size(103, 23);
             btnCargar.TabIndex = 1;
             btnCargar.Text = "Cargar Habitos";
             btnCargar.UseVisualStyleBackColor = true;
@@ -68,28 +68,25 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(240, 230);
-            txtNombre.Margin = new Padding(4, 5, 4, 5);
+            txtNombre.Location = new Point(168, 138);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(141, 31);
+            txtNombre.Size = new Size(100, 23);
             txtNombre.TabIndex = 2;
             txtNombre.TextChanged += textBox1_TextChanged;
             // 
             // txtDescripcion
             // 
-            txtDescripcion.Location = new Point(240, 297);
-            txtDescripcion.Margin = new Padding(4, 5, 4, 5);
+            txtDescripcion.Location = new Point(168, 178);
             txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(141, 31);
+            txtDescripcion.Size = new Size(100, 23);
             txtDescripcion.TabIndex = 3;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(18, 236);
-            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Location = new Point(13, 142);
             label1.Name = "label1";
-            label1.Size = new Size(166, 25);
+            label1.Size = new Size(109, 15);
             label1.TabIndex = 4;
             label1.Text = "Nombre del Habito";
             label1.Click += label1_Click;
@@ -97,10 +94,9 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(18, 303);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(13, 182);
             label2.Name = "label2";
-            label2.Size = new Size(187, 25);
+            label2.Size = new Size(126, 15);
             label2.TabIndex = 5;
             label2.Text = "Descripcion (opcional)";
             label2.Click += label2_Click;
@@ -108,47 +104,42 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(18, 425);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(13, 255);
             label3.Name = "label3";
-            label3.Size = new Size(210, 25);
+            label3.Size = new Size(141, 15);
             label3.TabIndex = 6;
             label3.Text = "Hora Objetivo(hh:mm:ss)";
             label3.Click += label3_Click;
             // 
             // nudFrecuencia
             // 
-            nudFrecuencia.Location = new Point(240, 362);
-            nudFrecuencia.Margin = new Padding(4, 5, 4, 5);
+            nudFrecuencia.Location = new Point(168, 217);
             nudFrecuencia.Name = "nudFrecuencia";
-            nudFrecuencia.Size = new Size(143, 31);
+            nudFrecuencia.Size = new Size(100, 23);
             nudFrecuencia.TabIndex = 7;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(18, 364);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(13, 218);
             label4.Name = "label4";
-            label4.Size = new Size(193, 25);
+            label4.Size = new Size(129, 15);
             label4.TabIndex = 8;
             label4.Text = "Frecuencia por semana";
             label4.Click += label4_Click;
             // 
             // txtHoraObjetivo
             // 
-            txtHoraObjetivo.Location = new Point(240, 422);
-            txtHoraObjetivo.Margin = new Padding(4, 5, 4, 5);
+            txtHoraObjetivo.Location = new Point(168, 253);
             txtHoraObjetivo.Name = "txtHoraObjetivo";
-            txtHoraObjetivo.Size = new Size(141, 31);
+            txtHoraObjetivo.Size = new Size(100, 23);
             txtHoraObjetivo.TabIndex = 9;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(161, 493);
-            btnAgregar.Margin = new Padding(4, 5, 4, 5);
+            btnAgregar.Location = new Point(113, 296);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(107, 38);
+            btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 10;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
@@ -156,20 +147,20 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(410, 491);
-            btnEliminar.Margin = new Padding(4, 5, 4, 5);
+            btnEliminar.Location = new Point(287, 295);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(206, 40);
+            btnEliminar.Size = new Size(144, 24);
             btnEliminar.TabIndex = 11;
             btnEliminar.Text = "Eliminar seleccionado";
             btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += button2_Click;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(675, 493);
+            btnEditar.Location = new Point(472, 296);
+            btnEditar.Margin = new Padding(2, 2, 2, 2);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(112, 34);
+            btnEditar.Size = new Size(78, 20);
             btnEditar.TabIndex = 12;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
@@ -177,9 +168,9 @@
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1143, 750);
+            ClientSize = new Size(800, 449);
             Controls.Add(btnEditar);
             Controls.Add(btnEliminar);
             Controls.Add(btnAgregar);
@@ -193,7 +184,6 @@
             Controls.Add(txtNombre);
             Controls.Add(btnCargar);
             Controls.Add(dataGridView1);
-            Margin = new Padding(4, 5, 4, 5);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
