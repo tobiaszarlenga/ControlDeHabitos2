@@ -1,6 +1,15 @@
-﻿namespace ControlDeHabitos2.API.Interfaces
+﻿using ControlDeHabitos2.API.Models;
+
+namespace ControlDeHabitos2.API.Interfaces
 {
-    public class IUsuarioRepository
+    public interface IUsuarioRepository
     {
+        List<Usuario> ObtenerTodos();
+        Usuario? ObtenerPorId(int id);
+        void Agregar(Usuario usuario);
+        void Eliminar(int id);
+        Usuario? ValidarLogin(string nombre, string contraseña);
+
+
     }
 }
