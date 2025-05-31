@@ -41,6 +41,7 @@
             btnAgregar = new Button();
             btnEliminar = new Button();
             btnEditar = new Button();
+            process1 = new System.Diagnostics.Process();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudFrecuencia).BeginInit();
             SuspendLayout();
@@ -53,7 +54,6 @@
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(478, 150);
             dataGridView1.TabIndex = 0;
-          
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // btnCargar
@@ -158,13 +158,25 @@
             // btnEditar
             // 
             btnEditar.Location = new Point(472, 296);
-            btnEditar.Margin = new Padding(2, 2, 2, 2);
+            btnEditar.Margin = new Padding(2);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(78, 20);
             btnEditar.TabIndex = 12;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = true;
             btnEditar.Click += btnEditar_Click;
+            // 
+            // process1
+            // 
+            process1.StartInfo.Domain = "";
+            process1.StartInfo.LoadUserProfile = false;
+            process1.StartInfo.Password = null;
+            process1.StartInfo.StandardErrorEncoding = null;
+            process1.StartInfo.StandardInputEncoding = null;
+            process1.StartInfo.StandardOutputEncoding = null;
+            process1.StartInfo.UseCredentialsForNetworkingOnly = false;
+            process1.StartInfo.UserName = "";
+            process1.SynchronizingObject = this;
             // 
             // Form1
             // 
@@ -208,5 +220,6 @@
         private Button btnAgregar;
         private Button btnEliminar;
         private Button btnEditar;
+        private System.Diagnostics.Process process1;
     }
 }
