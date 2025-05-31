@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            button1 = new Button();
+            btnCargar = new Button();
             txtNombre = new TextBox();
             txtDescripcion = new TextBox();
             label1 = new Label();
@@ -40,6 +40,8 @@
             txtHoraObjetivo = new TextBox();
             btnAgregar = new Button();
             btnEliminar = new Button();
+            btnEditar = new Button();
+            process1 = new System.Diagnostics.Process();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudFrecuencia).BeginInit();
             SuspendLayout();
@@ -47,20 +49,22 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(400, 126);
+            dataGridView1.Location = new Point(294, 122);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(240, 150);
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(478, 150);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellClick += dataGridView1_CellClick;
             // 
-            // button1
+            // btnCargar
             // 
-            button1.Location = new Point(100, 88);
-            button1.Name = "button1";
-            button1.Size = new Size(103, 23);
-            button1.TabIndex = 1;
-            button1.Text = "Cargar Habitos";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += btnCargar_Click;
+            btnCargar.Location = new Point(294, 82);
+            btnCargar.Name = "btnCargar";
+            btnCargar.Size = new Size(103, 23);
+            btnCargar.TabIndex = 1;
+            btnCargar.Text = "Cargar Habitos";
+            btnCargar.UseVisualStyleBackColor = true;
+            btnCargar.Click += btnCargar_Click;
             // 
             // txtNombre
             // 
@@ -80,7 +84,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(29, 141);
+            label1.Location = new Point(13, 142);
             label1.Name = "label1";
             label1.Size = new Size(109, 15);
             label1.TabIndex = 4;
@@ -90,7 +94,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(29, 181);
+            label2.Location = new Point(13, 182);
             label2.Name = "label2";
             label2.Size = new Size(126, 15);
             label2.TabIndex = 5;
@@ -100,7 +104,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(29, 256);
+            label3.Location = new Point(13, 255);
             label3.Name = "label3";
             label3.Size = new Size(141, 15);
             label3.TabIndex = 6;
@@ -117,7 +121,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(29, 219);
+            label4.Location = new Point(13, 218);
             label4.Name = "label4";
             label4.Size = new Size(129, 15);
             label4.TabIndex = 8;
@@ -143,19 +147,43 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(400, 296);
+            btnEliminar.Location = new Point(287, 295);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(144, 24);
             btnEliminar.TabIndex = 11;
             btnEliminar.Text = "Eliminar seleccionado";
             btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += button2_Click;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // btnEditar
+            // 
+            btnEditar.Location = new Point(472, 296);
+            btnEditar.Margin = new Padding(2);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(78, 20);
+            btnEditar.TabIndex = 12;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
+            // 
+            // process1
+            // 
+            process1.StartInfo.Domain = "";
+            process1.StartInfo.LoadUserProfile = false;
+            process1.StartInfo.Password = null;
+            process1.StartInfo.StandardErrorEncoding = null;
+            process1.StartInfo.StandardInputEncoding = null;
+            process1.StartInfo.StandardOutputEncoding = null;
+            process1.StartInfo.UseCredentialsForNetworkingOnly = false;
+            process1.StartInfo.UserName = "";
+            process1.SynchronizingObject = this;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 449);
+            Controls.Add(btnEditar);
             Controls.Add(btnEliminar);
             Controls.Add(btnAgregar);
             Controls.Add(txtHoraObjetivo);
@@ -166,7 +194,7 @@
             Controls.Add(label1);
             Controls.Add(txtDescripcion);
             Controls.Add(txtNombre);
-            Controls.Add(button1);
+            Controls.Add(btnCargar);
             Controls.Add(dataGridView1);
             Name = "Form1";
             Text = "Form1";
@@ -180,7 +208,7 @@
         #endregion
 
         private DataGridView dataGridView1;
-        private Button button1;
+        private Button btnCargar;
         private TextBox txtNombre;
         private TextBox txtDescripcion;
         private Label label1;
@@ -191,5 +219,7 @@
         private TextBox txtHoraObjetivo;
         private Button btnAgregar;
         private Button btnEliminar;
+        private Button btnEditar;
+        private System.Diagnostics.Process process1;
     }
 }
