@@ -31,6 +31,9 @@ namespace ControlDeHabitos2.API.Controllers
         [HttpPost("login")]
         public IActionResult Login([FromBody] Usuario usuario)
         {
+            if (string.IsNullOrWhiteSpace(usuario.Nombre) || string.IsNullOrWhiteSpace(usuario.Contraseña))
+                return BadRequest("Nombre y contraseña son requeridos.");
+
             var usuarioExistente = _usuarioService.Validar(usuario.Nombre, usuario.Contraseña);
             if (usuarioExistente == null)
                 return Unauthorized("Usuario o contraseña incorrectos");
