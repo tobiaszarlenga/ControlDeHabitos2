@@ -9,5 +9,7 @@ namespace ControlDeHabitos2.API.Interfaces
         void Crear(Usuario nuevoUsuario);
         void Actualizar(Usuario usuarioActualizado);
         void Eliminar(int id);
+        Usuario? Validar(string nombre, string contraseña);
+
     }
 }

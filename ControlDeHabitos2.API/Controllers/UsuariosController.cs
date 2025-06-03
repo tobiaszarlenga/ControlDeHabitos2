@@ -28,6 +28,16 @@ namespace ControlDeHabitos2.API.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpPost("login")]
+        public IActionResult Login([FromBody] Usuario usuario)
+        {
+            var usuarioExistente = _usuarioService.Validar(usuario.Nombre, usuario.Contraseña);
+            if (usuarioExistente == null)
+                return Unauthorized("Usuario o contraseña incorrectos");
+
+            return Ok(usuarioExistente);
+        }
+
 
         [HttpGet("{id}")]
         public IActionResult ObtenerPorId(int id)

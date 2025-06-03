@@ -29,7 +29,7 @@ namespace ControlDeHabitos2.API.Controllers
             return Ok(habito);
 
         }
-
+       
         [HttpGet("usuario/{usuarioId}")]
         public IActionResult ObtenerPorUsuario(int usuarioId)
         {
