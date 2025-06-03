@@ -1,13 +1,15 @@
 ﻿using ControlDeHabitos2.API.Interfaces;
 using ControlDeHabitos2.API.Models;
 
-
 namespace ControlDeHabitos2.API.Services
 {
     public class HabitoService : IHabitoService
     {
         private readonly List<Habito> _habitos = new();
         private int _siguienteId = 1;
+        
+
+
         public List<Habito> ObtenerTodos()
         {
             return _habitos;
@@ -16,11 +18,18 @@ namespace ControlDeHabitos2.API.Services
         {
             return _habitos.FirstOrDefault(h => h.Id == id);
         }
+        public List<Habito> ObtenerPorUsuarioId(int usuarioId)
+        {
+            return _habitos.Where(h => h.UsuarioId == usuarioId).ToList();
+        }
+
 
         public void Crear(Habito nuevoHabito)
         {
             nuevoHabito.Id = _siguienteId++;
             nuevoHabito.FechaCreacion = DateTime.Now;
+
+            // Aquí deberías asegurarte de que el UsuarioId sea válido, si querés.
             _habitos.Add(nuevoHabito);
         }
         public void Actualizar(Habito habitoActualizado)

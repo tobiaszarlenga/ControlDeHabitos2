@@ -9,5 +9,7 @@ namespace ControlDeHabitos2.API.Interfaces
         void Crear(Habito nuevoHabito);
         void Actualizar(Habito habitoActualizado);
         void Eliminar(int id);
+        List<Habito> ObtenerPorUsuarioId(int usuarioId);
+
     }
 }

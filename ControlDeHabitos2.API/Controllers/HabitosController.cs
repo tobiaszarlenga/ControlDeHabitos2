@@ -14,6 +14,12 @@ namespace ControlDeHabitos2.API.Controllers
         {
             _habitoService = habitoService;
         }
+        [HttpGet("usuario/{usuarioId}")]
+        public IActionResult ObtenerPorUsuario(int usuarioId)
+        {
+            var habitos = _habitoService.ObtenerPorUsuarioId(usuarioId);
+            return Ok(habitos);
+        }
 
         [HttpGet]
         public ActionResult<List<Habito>> Get()
