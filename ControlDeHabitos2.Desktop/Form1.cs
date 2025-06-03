@@ -43,20 +43,24 @@ namespace ControlDeHabitos2.Desktop
 
 
         private async void btnCargar_Click(object sender, EventArgs e)
-
         {
+            if (Sesion.UsuarioId == null)
+            {
+                MessageBox.Show("Debes iniciar sesión.");
+                return;
+            }
+
             try
             {
                 var client = new HttpClient();
-                var habitos = await client.GetFromJsonAsync<List<Habito>>("https://localhost:7138/api/Habitos");
+                var url = $"https://localhost:7138/api/Habitos/usuario/{Sesion.UsuarioId}";
+                var habitos = await client.GetFromJsonAsync<List<Habito>>(url);
                 dataGridView1.DataSource = habitos;
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al obtener habitos: {ex.Message}");
+                MessageBox.Show($"Error al obtener hábitos: {ex.Message}");
             }
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
