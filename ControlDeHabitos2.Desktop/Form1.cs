@@ -183,6 +183,12 @@ namespace ControlDeHabitos2.Desktop
 
         private async void btnEditar_Click(object sender, EventArgs e)
         {
+            if (Sesion.UsuarioId == null)
+            {
+                MessageBox.Show("Debes iniciar sesión.");
+                return;
+            }
+
             if (dataGridView1.CurrentRow == null)
             {
                 MessageBox.Show("Seleccioná un hábito para editar.");
@@ -197,10 +203,11 @@ namespace ControlDeHabitos2.Desktop
                 return;
             }
 
-
+            // Actualizamos datos del formulario
             habitoSeleccionado.Nombre = txtNombre.Text;
             habitoSeleccionado.Descripcion = txtDescripcion.Text;
             habitoSeleccionado.FrecuenciaPorSemana = (int)nudFrecuencia.Value;
+            habitoSeleccionado.UsuarioId = Sesion.UsuarioId.Value; // ¡Aseguramos que tenga el usuario correcto!
 
             if (TimeSpan.TryParse(txtHoraObjetivo.Text, out TimeSpan hora))
             {
@@ -226,7 +233,8 @@ namespace ControlDeHabitos2.Desktop
                 }
                 else
                 {
-                    MessageBox.Show("Error al actualizar el hábito.");
+                    var error = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Error al actualizar el hábito:\n{error}");
                 }
             }
             catch (Exception ex)
@@ -234,6 +242,7 @@ namespace ControlDeHabitos2.Desktop
                 MessageBox.Show($"Error: {ex.Message}");
             }
         }
+
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
