@@ -19,10 +19,18 @@ namespace ControlDeHabitos2.Desktop
         }
         private async Task CargarHabitos()
         {
+            if (Sesion.UsuarioId == null)
+            {
+                MessageBox.Show("Debes iniciar sesión.");
+                return;
+            }
+
             try
             {
                 var client = new HttpClient();
-                var habitos = await client.GetFromJsonAsync<List<Habito>>("https://localhost:7138/api/Habitos");
+                var habitos = await client.GetFromJsonAsync<List<Habito>>(
+                    $"https://localhost:7138/api/Habitos/usuario/{Sesion.UsuarioId}"
+                );
                 dataGridView1.DataSource = habitos;
             }
             catch (Exception ex)
