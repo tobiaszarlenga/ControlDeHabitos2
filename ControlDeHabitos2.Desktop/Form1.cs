@@ -213,6 +213,7 @@ namespace ControlDeHabitos2.Desktop
             habitoSeleccionado.FrecuenciaPorSemana = (int)nudFrecuencia.Value;
             habitoSeleccionado.UsuarioId = Sesion.UsuarioId.Value; // ¡Aseguramos que tenga el usuario correcto!
 
+
             if (TimeSpan.TryParse(txtHoraObjetivo.Text, out TimeSpan hora))
             {
                 habitoSeleccionado.HoraObjetivo = hora;
@@ -271,7 +272,7 @@ namespace ControlDeHabitos2.Desktop
         {
 
 
-            
+
             string nombre = Microsoft.VisualBasic.Interaction.InputBox("Nombre de usuario:");
             string contraseña = Microsoft.VisualBasic.Interaction.InputBox("Contraseña:");
 
@@ -308,8 +309,50 @@ namespace ControlDeHabitos2.Desktop
 
 
         }
+        private async void registrarseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string nombre = Microsoft.VisualBasic.Interaction.InputBox("Nombre de usuario:");
+            string contraseña = Microsoft.VisualBasic.Interaction.InputBox("Contraseña:");
+
+            if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(contraseña))
+            {
+                MessageBox.Show("Nombre y contraseña son obligatorios.");
+                return;
+            }
+
+            var nuevoUsuario = new Usuario { Nombre = nombre, Contraseña = contraseña };
+
+            try
+            {
+                var client = new HttpClient();
+                var response = await client.PostAsJsonAsync("https://localhost:7138/api/Usuarios", nuevoUsuario);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Error al registrar usuario:\n{error}");
+                    return;
+                }
+
+                var usuarioCreado = await response.Content.ReadFromJsonAsync<Usuario>();
+
+                if (usuarioCreado == null)
+                {
+                    MessageBox.Show("Error: No se pudo leer el usuario desde la respuesta.");
+                    return;
+                }
+
+                Sesion.UsuarioId = usuarioCreado.Id;
+                MessageBox.Show($"Usuario registrado correctamente como: {usuarioCreado.Nombre}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+        }
+
+
     }
-    
 }
 
 

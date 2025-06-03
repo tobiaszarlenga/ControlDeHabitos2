@@ -45,6 +45,7 @@
             menuStrip1 = new MenuStrip();
             uSUARIOToolStripMenuItem = new ToolStripMenuItem();
             iniciarSesionToolStripMenuItem = new ToolStripMenuItem();
+            registrorToolStripMenuItem = new ToolStripMenuItem();
             cerrarSesionToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudFrecuencia).BeginInit();
@@ -194,7 +195,7 @@
             // 
             // uSUARIOToolStripMenuItem
             // 
-            uSUARIOToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { iniciarSesionToolStripMenuItem, cerrarSesionToolStripMenuItem });
+            uSUARIOToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { iniciarSesionToolStripMenuItem, registrorToolStripMenuItem, cerrarSesionToolStripMenuItem });
             uSUARIOToolStripMenuItem.Name = "uSUARIOToolStripMenuItem";
             uSUARIOToolStripMenuItem.Size = new Size(68, 20);
             uSUARIOToolStripMenuItem.Text = "USUARIO";
@@ -205,6 +206,13 @@
             iniciarSesionToolStripMenuItem.Size = new Size(180, 22);
             iniciarSesionToolStripMenuItem.Text = "Iniciar Sesion";
             iniciarSesionToolStripMenuItem.Click += iniciarSesionToolStripMenuItem_Click;
+            // 
+            // registrorToolStripMenuItem
+            // 
+            registrorToolStripMenuItem.Name = "registrorToolStripMenuItem";
+            registrorToolStripMenuItem.Size = new Size(180, 22);
+            registrorToolStripMenuItem.Text = "Registrarse";
+            registrorToolStripMenuItem.Click += registrarseToolStripMenuItem_Click;
             // 
             // cerrarSesionToolStripMenuItem
             // 
@@ -263,5 +271,6 @@
         private ToolStripMenuItem uSUARIOToolStripMenuItem;
         private ToolStripMenuItem iniciarSesionToolStripMenuItem;
         private ToolStripMenuItem cerrarSesionToolStripMenuItem;
+        private ToolStripMenuItem registrorToolStripMenuItem;
     }
 }
