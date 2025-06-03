@@ -27,7 +27,17 @@ namespace ControlDeHabitos2.API.Controllers
             var habito = _habitoService.ObtenerPorId(id);
             if (habito == null) return NotFound();
             return Ok(habito);
+
         }
+       
+        [HttpGet("usuario/{usuarioId}")]
+        public IActionResult ObtenerPorUsuario(int usuarioId)
+        {
+            var habitos = _habitoService.ObtenerPorUsuarioId(usuarioId);
+            return Ok(habitos);
+        }
+
+
 
         [HttpPost]
         public IActionResult Post([FromBody] Habito nuevoHabito)
