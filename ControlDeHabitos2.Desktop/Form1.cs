@@ -53,8 +53,9 @@ namespace ControlDeHabitos2.Desktop
             try
             {
                 var client = new HttpClient();
-                var url = $"https://localhost:7138/api/Habitos/usuario/{Sesion.UsuarioId}";
-                var habitos = await client.GetFromJsonAsync<List<Habito>>(url);
+                var habitos = await client.GetFromJsonAsync<List<Habito>>(
+                    $"https://localhost:7138/api/Habitos/usuario/{Sesion.UsuarioId}"
+                );
                 dataGridView1.DataSource = habitos;
             }
             catch (Exception ex)
@@ -62,6 +63,7 @@ namespace ControlDeHabitos2.Desktop
                 MessageBox.Show($"Error al obtener hábitos: {ex.Message}");
             }
         }
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -99,6 +101,8 @@ namespace ControlDeHabitos2.Desktop
             try
             {
                 var nuevoHabito = new Habito
+
+
                 {
                     Nombre = txtNombre.Text,
                     Descripcion = txtDescripcion.Text,
@@ -351,9 +355,33 @@ namespace ControlDeHabitos2.Desktop
             }
         }
 
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          
+            if (Sesion.UsuarioId == null)
+            {
+                MessageBox.Show("No hay sesión activa.");
+                return;
+            }
+
+            var confirm = MessageBox.Show("¿Estás seguro de cerrar sesión?", "Confirmar", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
+                Sesion.UsuarioId = null;
+                MessageBox.Show("Sesión cerrada correctamente.");
+                dataGridView1.DataSource = null;
+
+                // Limpiar campos del formulario si querés
+                txtNombre.Clear();
+                txtDescripcion.Clear();
+                txtHoraObjetivo.Clear();
+                nudFrecuencia.Value = 0;
+            }
+        }
 
     }
 }
+
 
 
 
