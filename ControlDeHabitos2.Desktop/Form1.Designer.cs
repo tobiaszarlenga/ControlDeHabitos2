@@ -42,8 +42,13 @@
             btnEliminar = new Button();
             btnEditar = new Button();
             process1 = new System.Diagnostics.Process();
+            menuStrip1 = new MenuStrip();
+            uSUARIOToolStripMenuItem = new ToolStripMenuItem();
+            iniciarSesionToolStripMenuItem = new ToolStripMenuItem();
+            cerrarSesionToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudFrecuencia).BeginInit();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
@@ -178,6 +183,35 @@
             process1.StartInfo.UserName = "";
             process1.SynchronizingObject = this;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.Items.AddRange(new ToolStripItem[] { uSUARIOToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.TabIndex = 13;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // uSUARIOToolStripMenuItem
+            // 
+            uSUARIOToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { iniciarSesionToolStripMenuItem, cerrarSesionToolStripMenuItem });
+            uSUARIOToolStripMenuItem.Name = "uSUARIOToolStripMenuItem";
+            uSUARIOToolStripMenuItem.Size = new Size(68, 20);
+            uSUARIOToolStripMenuItem.Text = "USUARIO";
+            // 
+            // iniciarSesionToolStripMenuItem
+            // 
+            iniciarSesionToolStripMenuItem.Name = "iniciarSesionToolStripMenuItem";
+            iniciarSesionToolStripMenuItem.Size = new Size(180, 22);
+            iniciarSesionToolStripMenuItem.Text = "Iniciar Sesion";
+            iniciarSesionToolStripMenuItem.Click += iniciarSesionToolStripMenuItem_Click;
+            // 
+            // cerrarSesionToolStripMenuItem
+            // 
+            cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
+            cerrarSesionToolStripMenuItem.Size = new Size(180, 22);
+            cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -196,11 +230,15 @@
             Controls.Add(txtNombre);
             Controls.Add(btnCargar);
             Controls.Add(dataGridView1);
+            Controls.Add(menuStrip1);
+            MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudFrecuencia).EndInit();
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -221,5 +259,9 @@
         private Button btnEliminar;
         private Button btnEditar;
         private System.Diagnostics.Process process1;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem uSUARIOToolStripMenuItem;
+        private ToolStripMenuItem iniciarSesionToolStripMenuItem;
+        private ToolStripMenuItem cerrarSesionToolStripMenuItem;
     }
 }

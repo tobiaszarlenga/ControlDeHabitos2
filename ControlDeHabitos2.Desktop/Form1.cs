@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc.TagHelpers;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
+using ControlDeHabitos2.API.Models;
+
 
 namespace ControlDeHabitos2.Desktop
 {
@@ -184,7 +186,7 @@ namespace ControlDeHabitos2.Desktop
                 return;
             }
 
-            
+
             habitoSeleccionado.Nombre = txtNombre.Text;
             habitoSeleccionado.Descripcion = txtDescripcion.Text;
             habitoSeleccionado.FrecuenciaPorSemana = (int)nudFrecuencia.Value;
@@ -226,21 +228,70 @@ namespace ControlDeHabitos2.Desktop
         {
             if (e.RowIndex >= 0)
             {
-                
-                var habitoSeleccionado = dataGridView1.Rows[e.RowIndex].DataBoundItem as Habito;
-                if (habitoSeleccionado == null) return; 
 
-                
+                var habitoSeleccionado = dataGridView1.Rows[e.RowIndex].DataBoundItem as Habito;
+                if (habitoSeleccionado == null) return;
+
+
                 txtNombre.Text = habitoSeleccionado.Nombre;
                 txtDescripcion.Text = habitoSeleccionado.Descripcion;
                 nudFrecuencia.Value = habitoSeleccionado.FrecuenciaPorSemana;
                 txtHoraObjetivo.Text = habitoSeleccionado.HoraObjetivo?.ToString() ?? "";
 
-               
+
                 this.habitoSeleccionado = habitoSeleccionado;
             }
         }
 
+        private async void iniciarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+
+            
+            string nombre = Microsoft.VisualBasic.Interaction.InputBox("Nombre de usuario:");
+            string contraseña = Microsoft.VisualBasic.Interaction.InputBox("Contraseña:");
+
+            var usuario = new Usuario { Nombre = nombre, Contraseña = contraseña };
+            try
+            {
+                var client = new HttpClient();
+                var response = await client.PostAsJsonAsync("https://localhost:7138/api/Usuarios/login", usuario);
+                if (response.IsSuccessStatusCode)
+                {
+                    var usuarioLogueado = await response.Content.ReadFromJsonAsync<Usuario>();
+
+                    if (usuarioLogueado == null)
+                    {
+                        MessageBox.Show("Error al procesar la respuesta del servidor.");
+                        return;
+                    }
+
+                    Sesion.UsuarioId = usuarioLogueado.Id;
+                    MessageBox.Show($"Sesión iniciada correctamente como: {usuarioLogueado.Nombre}");
+
+                    await CargarHabitos();
+                }
+
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña incorrectos.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al iniciar sesión: {ex.Message}");
+            }
+
+
+        }
     }
+    
 }
+
+
+
+
+
+
+
 
