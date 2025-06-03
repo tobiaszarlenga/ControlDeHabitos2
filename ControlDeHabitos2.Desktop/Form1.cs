@@ -86,6 +86,12 @@ namespace ControlDeHabitos2.Desktop
 
         private async void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (Sesion.UsuarioId == null)
+            {
+                MessageBox.Show("Debes iniciar sesión.");
+                return;
+            }
+
             try
             {
                 var nuevoHabito = new Habito
@@ -99,76 +105,81 @@ namespace ControlDeHabitos2.Desktop
                     EstaCompletoHoy = false,
                     DiasCompletados = 0,
                     FechaCreacion = DateTime.Now,
-                    FechaUltimaCompletacion = null
-
-
+                    FechaUltimaCompletacion = null,
+                    UsuarioId = Sesion.UsuarioId.Value // ¡IMPORTANTE!
                 };
+
                 var client = new HttpClient();
                 var response = await client.PostAsJsonAsync("https://localhost:7138/api/Habitos", nuevoHabito);
+
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("Habito agregado correctamente. ");
+                    MessageBox.Show("Hábito agregado correctamente.");
                     btnCargar.PerformClick();
                 }
                 else
                 {
                     var error = await response.Content.ReadAsStringAsync();
-                    MessageBox.Show($"Error al agregar Habito:\n{error}");
-
+                    MessageBox.Show($"Error al agregar hábito:\n{error}");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error:\n{ex.Message}");
             }
-
-
         }
+
 
         private async void btnEliminar_Click(object sender, EventArgs e)
         {
+            if (Sesion.UsuarioId == null)
+            {
+                MessageBox.Show("Debes iniciar sesión.");
+                return;
+            }
+
             if (dataGridView1.CurrentRow == null)
             {
-                MessageBox.Show("Selecciona un habito para eliminar");
+                MessageBox.Show("Selecciona un hábito para eliminar.");
                 return;
-
             }
-            var habitoSeleccionado = dataGridView1.CurrentRow.DataBoundItem as Habito;
 
+            var habitoSeleccionado = dataGridView1.CurrentRow.DataBoundItem as Habito;
             if (habitoSeleccionado == null)
             {
-                MessageBox.Show("No se pudo obtener el habito. ");
+                MessageBox.Show("No se pudo obtener el hábito.");
                 return;
             }
-            var resultado = MessageBox.Show($"Estas seguro que queres eliminar '{habitoSeleccionado.Nombre}'?",
-                "confirmar eliminacion", MessageBoxButtons.YesNo);
+
+            var resultado = MessageBox.Show(
+                $"¿Estás seguro de que quieres eliminar '{habitoSeleccionado.Nombre}'?",
+                "Confirmar eliminación", MessageBoxButtons.YesNo);
+
             if (resultado == DialogResult.Yes)
             {
                 try
                 {
                     var client = new HttpClient();
                     var response = await client.DeleteAsync($"https://localhost:7138/api/Habitos/{habitoSeleccionado.Id}");
+
                     if (response.IsSuccessStatusCode)
                     {
-                        MessageBox.Show("habito eliminado correctamente. ");
+                        MessageBox.Show("Hábito eliminado correctamente.");
                         btnCargar.PerformClick();
                     }
                     else
                     {
                         var error = await response.Content.ReadAsStringAsync();
                         MessageBox.Show($"Error al eliminar: {error}");
-
                     }
-
                 }
                 catch (Exception ex)
                 {
-                    {
-                        MessageBox.Show($"Error: {ex.Message}");
-                    }
+                    MessageBox.Show($"Error: {ex.Message}");
                 }
             }
         }
+
 
         private async void btnEditar_Click(object sender, EventArgs e)
         {
