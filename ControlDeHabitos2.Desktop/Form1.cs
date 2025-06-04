@@ -272,7 +272,32 @@ namespace ControlDeHabitos2.Desktop
             }
         }
 
-        private async void iniciarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+
+
+
+
+
+        private void uSUARIOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void btnIniciarSesion_Click(object sender, EventArgs e)
         {
 
 
@@ -311,9 +336,9 @@ namespace ControlDeHabitos2.Desktop
                 MessageBox.Show($"Error al iniciar sesión: {ex.Message}");
             }
 
-
         }
-        private async void registrarseToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private async void btnRegistrarse_Click(object sender, EventArgs e)
         {
             string nombre = Microsoft.VisualBasic.Interaction.InputBox("Nombre de usuario:");
             string contraseña = Microsoft.VisualBasic.Interaction.InputBox("Contraseña:");
@@ -355,9 +380,8 @@ namespace ControlDeHabitos2.Desktop
             }
         }
 
-        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-
             if (Sesion.UsuarioId == null)
             {
                 MessageBox.Show("No hay sesión activa.");
@@ -377,26 +401,6 @@ namespace ControlDeHabitos2.Desktop
                 txtHoraObjetivo.Clear();
                 nudFrecuencia.Value = 0;
             }
-        }
-
-        private void uSUARIOToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
