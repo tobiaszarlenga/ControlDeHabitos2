@@ -47,24 +47,29 @@
             iniciarSesionToolStripMenuItem = new ToolStripMenuItem();
             registrorToolStripMenuItem = new ToolStripMenuItem();
             cerrarSesionToolStripMenuItem = new ToolStripMenuItem();
+            tabPage2 = new TabPage();
+            tabLogin = new TabPage();
+            tabControl1 = new TabControl();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudFrecuencia).BeginInit();
             menuStrip1.SuspendLayout();
+            tabPage2.SuspendLayout();
+            tabControl1.SuspendLayout();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(294, 122);
+            dataGridView1.Location = new Point(345, 58);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(478, 150);
+            dataGridView1.Size = new Size(337, 150);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellClick += dataGridView1_CellClick;
             // 
             // btnCargar
             // 
-            btnCargar.Location = new Point(294, 82);
+            btnCargar.Location = new Point(345, 29);
             btnCargar.Name = "btnCargar";
             btnCargar.Size = new Size(103, 23);
             btnCargar.TabIndex = 1;
@@ -74,7 +79,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(168, 138);
+            txtNombre.Location = new Point(186, 70);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(100, 23);
             txtNombre.TabIndex = 2;
@@ -82,7 +87,7 @@
             // 
             // txtDescripcion
             // 
-            txtDescripcion.Location = new Point(168, 178);
+            txtDescripcion.Location = new Point(186, 110);
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(100, 23);
             txtDescripcion.TabIndex = 3;
@@ -90,7 +95,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(13, 142);
+            label1.Location = new Point(31, 74);
             label1.Name = "label1";
             label1.Size = new Size(109, 15);
             label1.TabIndex = 4;
@@ -100,7 +105,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(13, 182);
+            label2.Location = new Point(31, 114);
             label2.Name = "label2";
             label2.Size = new Size(126, 15);
             label2.TabIndex = 5;
@@ -110,7 +115,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(13, 255);
+            label3.Location = new Point(31, 187);
             label3.Name = "label3";
             label3.Size = new Size(141, 15);
             label3.TabIndex = 6;
@@ -119,7 +124,7 @@
             // 
             // nudFrecuencia
             // 
-            nudFrecuencia.Location = new Point(168, 217);
+            nudFrecuencia.Location = new Point(186, 149);
             nudFrecuencia.Name = "nudFrecuencia";
             nudFrecuencia.Size = new Size(100, 23);
             nudFrecuencia.TabIndex = 7;
@@ -127,7 +132,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(13, 218);
+            label4.Location = new Point(31, 150);
             label4.Name = "label4";
             label4.Size = new Size(129, 15);
             label4.TabIndex = 8;
@@ -136,14 +141,14 @@
             // 
             // txtHoraObjetivo
             // 
-            txtHoraObjetivo.Location = new Point(168, 253);
+            txtHoraObjetivo.Location = new Point(186, 185);
             txtHoraObjetivo.Name = "txtHoraObjetivo";
             txtHoraObjetivo.Size = new Size(100, 23);
             txtHoraObjetivo.TabIndex = 9;
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(113, 296);
+            btnAgregar.Location = new Point(131, 228);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 10;
@@ -153,7 +158,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(287, 295);
+            btnEliminar.Location = new Point(345, 231);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(144, 24);
             btnEliminar.TabIndex = 11;
@@ -163,8 +168,8 @@
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(472, 296);
-            btnEditar.Margin = new Padding(2, 2, 2, 2);
+            btnEditar.Location = new Point(604, 231);
+            btnEditar.Margin = new Padding(2);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(78, 20);
             btnEditar.TabIndex = 12;
@@ -198,49 +203,83 @@
             // 
             uSUARIOToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { iniciarSesionToolStripMenuItem, registrorToolStripMenuItem, cerrarSesionToolStripMenuItem });
             uSUARIOToolStripMenuItem.Name = "uSUARIOToolStripMenuItem";
-            uSUARIOToolStripMenuItem.Size = new Size(122, 20);
+            uSUARIOToolStripMenuItem.Size = new Size(68, 20);
             uSUARIOToolStripMenuItem.Text = "USUARIO";
             uSUARIOToolStripMenuItem.Click += uSUARIOToolStripMenuItem_Click;
             // 
             // iniciarSesionToolStripMenuItem
             // 
             iniciarSesionToolStripMenuItem.Name = "iniciarSesionToolStripMenuItem";
-            iniciarSesionToolStripMenuItem.Size = new Size(180, 22);
+            iniciarSesionToolStripMenuItem.Size = new Size(143, 22);
             iniciarSesionToolStripMenuItem.Text = "Iniciar Sesion";
             iniciarSesionToolStripMenuItem.Click += iniciarSesionToolStripMenuItem_Click;
             // 
             // registrorToolStripMenuItem
             // 
             registrorToolStripMenuItem.Name = "registrorToolStripMenuItem";
-            registrorToolStripMenuItem.Size = new Size(180, 22);
+            registrorToolStripMenuItem.Size = new Size(143, 22);
             registrorToolStripMenuItem.Text = "Registrarse";
             registrorToolStripMenuItem.Click += registrarseToolStripMenuItem_Click;
             // 
             // cerrarSesionToolStripMenuItem
             // 
             cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            cerrarSesionToolStripMenuItem.Size = new Size(180, 22);
+            cerrarSesionToolStripMenuItem.Size = new Size(143, 22);
             cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             cerrarSesionToolStripMenuItem.Click += cerrarSesionToolStripMenuItem_Click;
+            // 
+            // tabPage2
+            // 
+            tabPage2.Controls.Add(btnEliminar);
+            tabPage2.Controls.Add(btnAgregar);
+            tabPage2.Controls.Add(btnEditar);
+            tabPage2.Controls.Add(txtHoraObjetivo);
+            tabPage2.Controls.Add(dataGridView1);
+            tabPage2.Controls.Add(label4);
+            tabPage2.Controls.Add(btnCargar);
+            tabPage2.Controls.Add(nudFrecuencia);
+            tabPage2.Controls.Add(txtNombre);
+            tabPage2.Controls.Add(label3);
+            tabPage2.Controls.Add(txtDescripcion);
+            tabPage2.Controls.Add(label2);
+            tabPage2.Controls.Add(label1);
+            tabPage2.Location = new Point(4, 24);
+            tabPage2.Name = "tabPage2";
+            tabPage2.Padding = new Padding(3);
+            tabPage2.Size = new Size(768, 316);
+            tabPage2.TabIndex = 1;
+            tabPage2.Text = "CARGAR";
+            tabPage2.UseVisualStyleBackColor = true;
+            tabPage2.Click += tabPage2_Click;
+            // 
+            // tabLogin
+            // 
+            tabLogin.Location = new Point(4, 24);
+            tabLogin.Name = "tabLogin";
+            tabLogin.Padding = new Padding(3);
+            tabLogin.Size = new Size(768, 316);
+            tabLogin.TabIndex = 0;
+            tabLogin.Text = "USUARIO ";
+            tabLogin.UseVisualStyleBackColor = true;
+            tabLogin.Click += tabPage1_Click;
+            // 
+            // tabControl1
+            // 
+            tabControl1.Controls.Add(tabLogin);
+            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Location = new Point(12, 27);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(776, 344);
+            tabControl1.TabIndex = 14;
+            tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 449);
-            Controls.Add(btnEditar);
-            Controls.Add(btnEliminar);
-            Controls.Add(btnAgregar);
-            Controls.Add(txtHoraObjetivo);
-            Controls.Add(label4);
-            Controls.Add(nudFrecuencia);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(txtDescripcion);
-            Controls.Add(txtNombre);
-            Controls.Add(btnCargar);
-            Controls.Add(dataGridView1);
+            Controls.Add(tabControl1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Form1";
@@ -250,6 +289,9 @@
             ((System.ComponentModel.ISupportInitialize)nudFrecuencia).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            tabPage2.ResumeLayout(false);
+            tabPage2.PerformLayout();
+            tabControl1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -275,5 +317,8 @@
         private ToolStripMenuItem iniciarSesionToolStripMenuItem;
         private ToolStripMenuItem cerrarSesionToolStripMenuItem;
         private ToolStripMenuItem registrorToolStripMenuItem;
+        private TabControl tabControl1;
+        private TabPage tabLogin;
+        private TabPage tabPage2;
     }
 }
