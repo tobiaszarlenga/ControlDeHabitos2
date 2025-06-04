@@ -9,9 +9,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="8.1.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="8.1.1" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="8.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="8.1.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="8.1.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="8.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ControlDeHabitos2.API\ControlDeHabitos2.API.csproj" />
   </ItemGroup>
 
 </Project>
