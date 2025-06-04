@@ -357,7 +357,7 @@ namespace ControlDeHabitos2.Desktop
 
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          
+
             if (Sesion.UsuarioId == null)
             {
                 MessageBox.Show("No hay sesión activa.");
@@ -379,6 +379,10 @@ namespace ControlDeHabitos2.Desktop
             }
         }
 
+        private void uSUARIOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
