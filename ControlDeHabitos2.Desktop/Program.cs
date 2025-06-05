@@ -1,17 +1,18 @@
-namespace ControlDeHabitos2.Desktop
+using ControlDeHabitos2.Desktop;
+
+static class Program
 {
-    internal static class Program
+    [STAThread]
+    static void Main()
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        ApplicationConfiguration.Initialize(); // o EnableVisualStyles si es .NET Framework
+
+        var loginForm = new LoginForm();
+        // Si el usuario inicia sesión correctamente
+        if (loginForm.ShowDialog() == DialogResult.OK)
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
         }
+        // Si no inicia sesión, la app termina acá (¡esto está bien!)
     }
 }
