@@ -400,6 +400,7 @@ namespace ControlDeHabitos2.Desktop
                 txtDescripcion.Clear();
                 txtHoraObjetivo.Clear();
                 nudFrecuencia.Value = 0;
+                this.Close();
             }
         }
     }

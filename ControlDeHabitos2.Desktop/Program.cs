@@ -5,14 +5,20 @@ static class Program
     [STAThread]
     static void Main()
     {
-        ApplicationConfiguration.Initialize(); // o EnableVisualStyles si es .NET Framework
+        ApplicationConfiguration.Initialize();
 
-        var loginForm = new LoginForm();
-        // Si el usuario inicia sesión correctamente
-        if (loginForm.ShowDialog() == DialogResult.OK)
+        while (true)
         {
-            Application.Run(new Form1());
+            var loginForm = new LoginForm();
+            if (loginForm.ShowDialog() == DialogResult.OK)
+            {
+                Application.Run(new Form1());
+            }
+            else
+            {
+                // Si el login se cancela o se cierra, termina la app
+                break;
+            }
         }
-        // Si no inicia sesión, la app termina acá (¡esto está bien!)
     }
 }
