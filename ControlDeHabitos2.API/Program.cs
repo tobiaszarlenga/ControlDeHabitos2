@@ -20,7 +20,14 @@ builder.Services.AddSwaggerGen(c =>
 
 
 
+
+
+builder.Services.AddSingleton<IHabitoRepository, HabitoRepository>();
+builder.Services.AddSingleton<IUsuarioRepository, UsuarioRepository>();
+
+
 builder.Services.AddSingleton<IHabitoService, HabitoService>();
+builder.Services.AddSingleton<IUsuarioService, UsuarioService>();
 
 var app = builder.Build();
 
