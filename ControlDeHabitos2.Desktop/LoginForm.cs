@@ -12,6 +12,8 @@ namespace ControlDeHabitos2.Desktop
         public LoginForm()
         {
             InitializeComponent();
+            this.AcceptButton = btnLogin;
+
             txtContraseña.UseSystemPasswordChar = true;
         }
 
@@ -67,6 +69,11 @@ namespace ControlDeHabitos2.Desktop
             {
                 form.ShowDialog();
             }
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+            txtUsuario.Focus(); 
         }
     }
 }

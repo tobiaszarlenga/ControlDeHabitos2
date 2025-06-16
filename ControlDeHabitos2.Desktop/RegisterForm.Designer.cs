@@ -32,7 +32,8 @@
             lblContraseña = new Label();
             txtNombre = new TextBox();
             txtContraseña = new TextBox();
-            btnRegistar = new Button();
+            btnRegistrar = new Button();
+            btnCancelar = new Button();
             SuspendLayout();
             // 
             // lblNombre
@@ -69,22 +70,33 @@
             txtContraseña.TabIndex = 3;
             txtContraseña.UseSystemPasswordChar = true;
             // 
-            // btnRegistar
+            // btnRegistrar
             // 
-            btnRegistar.Location = new Point(194, 189);
-            btnRegistar.Name = "btnRegistar";
-            btnRegistar.Size = new Size(75, 23);
-            btnRegistar.TabIndex = 4;
-            btnRegistar.Text = "Registrar";
-            btnRegistar.UseVisualStyleBackColor = true;
-            btnRegistar.Click += btnRegistar_Click;
+            btnRegistrar.Location = new Point(120, 192);
+            btnRegistrar.Name = "btnRegistrar";
+            btnRegistrar.Size = new Size(83, 23);
+            btnRegistrar.TabIndex = 4;
+            btnRegistrar.Text = "Registrar";
+            btnRegistrar.UseVisualStyleBackColor = true;
+            btnRegistrar.Click += btnRegistrar_Click;
+            // 
+            // btnCancelar
+            // 
+            btnCancelar.Location = new Point(245, 192);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(75, 23);
+            btnCancelar.TabIndex = 5;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(492, 268);
-            Controls.Add(btnRegistar);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnRegistrar);
             Controls.Add(txtContraseña);
             Controls.Add(txtNombre);
             Controls.Add(lblContraseña);
@@ -101,6 +113,7 @@
         private Label lblContraseña;
         private TextBox txtNombre;
         private TextBox txtContraseña;
-        private Button btnRegistar;
+        private Button btnRegistrar;
+        private Button btnCancelar;
     }
 }

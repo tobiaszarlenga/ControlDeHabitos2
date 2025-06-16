@@ -41,47 +41,53 @@
             // label1
             // 
             label1.Location = new Point(0, 0);
+            label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
-            label1.Size = new Size(100, 23);
+            label1.Size = new Size(70, 14);
             label1.TabIndex = 8;
             // 
             // label2
             // 
             label2.Location = new Point(0, 0);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(100, 23);
+            label2.Size = new Size(70, 14);
             label2.TabIndex = 7;
             // 
             // txtContraseña
             // 
-            txtContraseña.Location = new Point(308, 190);
+            txtContraseña.Location = new Point(216, 114);
+            txtContraseña.Margin = new Padding(2, 2, 2, 2);
             txtContraseña.Name = "txtContraseña";
-            txtContraseña.Size = new Size(133, 31);
-            txtContraseña.TabIndex = 6;
+            txtContraseña.Size = new Size(94, 23);
+            txtContraseña.TabIndex = 4;
             txtContraseña.UseSystemPasswordChar = true;
             // 
             // txtUsuario
             // 
-            txtUsuario.Location = new Point(308, 114);
+            txtUsuario.Location = new Point(216, 68);
+            txtUsuario.Margin = new Padding(2, 2, 2, 2);
             txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(133, 31);
+            txtUsuario.Size = new Size(94, 23);
             txtUsuario.TabIndex = 3;
             // 
             // btnRegistrarse
             // 
-            btnRegistrarse.Location = new Point(308, 263);
+            btnRegistrarse.Location = new Point(216, 158);
+            btnRegistrarse.Margin = new Padding(2, 2, 2, 2);
             btnRegistrarse.Name = "btnRegistrarse";
-            btnRegistrarse.Size = new Size(133, 34);
-            btnRegistrarse.TabIndex = 4;
+            btnRegistrarse.Size = new Size(93, 20);
+            btnRegistrarse.TabIndex = 6;
             btnRegistrarse.Text = "Registrarse";
             btnRegistrarse.UseVisualStyleBackColor = true;
             btnRegistrarse.Click += btnRegistrarse_Click;
             // 
             // btnLogin
             // 
-            btnLogin.Location = new Point(145, 263);
+            btnLogin.Location = new Point(102, 158);
+            btnLogin.Margin = new Padding(2, 2, 2, 2);
             btnLogin.Name = "btnLogin";
-            btnLogin.Size = new Size(134, 34);
+            btnLogin.Size = new Size(94, 20);
             btnLogin.TabIndex = 5;
             btnLogin.Text = "Iniciar Sesion";
             btnLogin.UseVisualStyleBackColor = true;
@@ -90,26 +96,28 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(145, 117);
+            label3.Location = new Point(102, 70);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(72, 25);
-            label3.TabIndex = 9;
+            label3.Size = new Size(47, 15);
+            label3.TabIndex = 7;
             label3.Text = "Usuario";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(145, 193);
+            label4.Location = new Point(102, 116);
+            label4.Margin = new Padding(2, 0, 2, 0);
             label4.Name = "label4";
-            label4.Size = new Size(101, 25);
+            label4.Size = new Size(67, 15);
             label4.TabIndex = 10;
             label4.Text = "Contraseña";
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(617, 375);
+            ClientSize = new Size(432, 225);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(btnLogin);
@@ -118,8 +126,10 @@
             Controls.Add(txtContraseña);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "LoginForm";
             Text = "LoginForm";
+            Load += LoginForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

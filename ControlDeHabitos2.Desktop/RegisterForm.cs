@@ -17,6 +17,8 @@ namespace ControlDeHabitos2.Desktop
         public RegisterForm()
         {
             InitializeComponent();
+            this.AcceptButton = btnRegistrar;
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -24,7 +26,7 @@ namespace ControlDeHabitos2.Desktop
 
         }
 
-       
+
         private async void btnRegistrar_Click(object sender, EventArgs e)
         {
             string nombre = txtNombre.Text.Trim();
@@ -65,8 +67,14 @@ namespace ControlDeHabitos2.Desktop
             {
                 MessageBox.Show($"Error: {ex.Message}");
             }
-        
+
 
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }
