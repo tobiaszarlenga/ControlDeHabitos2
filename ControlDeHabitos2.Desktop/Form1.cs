@@ -403,6 +403,37 @@ namespace ControlDeHabitos2.Desktop
                 this.Close();
             }
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private async void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show("¿Estás seguro de cerrar sesión?", "Confirmar", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
+                Sesion.UsuarioId = null;
+                MessageBox.Show("Sesión cerrada correctamente.");
+
+                this.Hide();
+
+                var login = new LoginForm();
+                var resultado = login.ShowDialog();
+
+                if (resultado == DialogResult.OK && Sesion.UsuarioId != null)
+                {
+                    await CargarHabitos();
+                    this.Show(); 
+                }
+                else
+                {
+                    this.Close(); 
+                }
+            }
+        }
+
     }
 }
 
