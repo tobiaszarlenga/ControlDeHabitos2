@@ -17,7 +17,10 @@ namespace ControlDeHabitos2.Desktop
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            if (Sesion.UsuarioId != null)
+            {
+                lblUsuarioActivo.Text = $"Usuario: {Sesion.NombreUsuario}";
+            }
         }
         private async Task CargarHabitos()
         {
@@ -415,6 +418,7 @@ namespace ControlDeHabitos2.Desktop
             if (confirm == DialogResult.Yes)
             {
                 Sesion.UsuarioId = null;
+                Sesion.NombreUsuario = null;
                 MessageBox.Show("Sesión cerrada correctamente.");
 
                 this.Hide();
@@ -429,7 +433,9 @@ namespace ControlDeHabitos2.Desktop
                 }
                 else
                 {
-                    this.Close(); 
+                    this.Close();
+                   
+
                 }
             }
         }

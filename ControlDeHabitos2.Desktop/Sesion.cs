@@ -9,5 +9,7 @@ namespace ControlDeHabitos2.Desktop
     internal class Sesion
     {
         public static int? UsuarioId { get; set; }
+        public static string? NombreUsuario { get; set; }
+
     }
 }

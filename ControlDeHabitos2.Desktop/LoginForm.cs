@@ -21,6 +21,7 @@ namespace ControlDeHabitos2.Desktop
         {
             string nombre = txtUsuario.Text.Trim();
             string contraseña = txtContraseña.Text;
+           
 
             if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(contraseña))
             {
@@ -47,6 +48,7 @@ namespace ControlDeHabitos2.Desktop
 
 
                     Sesion.UsuarioId = usuarioLogueado.Id;
+                    Sesion.NombreUsuario = usuarioLogueado.Nombre;
                     MessageBox.Show($"Sesión iniciada correctamente como: {usuarioLogueado.Nombre}");
 
                     this.DialogResult = DialogResult.OK;
