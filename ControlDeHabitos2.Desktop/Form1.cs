@@ -17,7 +17,11 @@ namespace ControlDeHabitos2.Desktop
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            if (Sesion.UsuarioId != null)
+            {
+                lblUsuarioActivo.Text = $"Usuario: {Sesion.NombreUsuario}";
+            }
+            ActualizarUsuarioActual();
         }
         private async Task CargarHabitos()
         {
@@ -403,6 +407,52 @@ namespace ControlDeHabitos2.Desktop
                 this.Close();
             }
         }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private async void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var confirm = MessageBox.Show("¿Estás seguro de cerrar sesión?", "Confirmar", MessageBoxButtons.YesNo);
+            if (confirm == DialogResult.Yes)
+            {
+                Sesion.UsuarioId = null;
+                Sesion.NombreUsuario = null;
+                MessageBox.Show("Sesión cerrada correctamente.");
+
+                this.Hide();
+
+                var login = new LoginForm();
+                var resultado = login.ShowDialog();
+
+                if (resultado == DialogResult.OK && Sesion.UsuarioId != null)
+                {
+                    ActualizarUsuarioActual();
+                    await CargarHabitos();
+                    this.Show();
+                }
+                else
+                {
+                    this.Close();
+
+
+                }
+            }
+        }
+
+        private void ActualizarUsuarioActual()
+        {
+            lblUsuarioActivo.Text = $"Usuario: {Sesion.NombreUsuario}";
+        }
+
+        private void lblUsuarioActivo_Click(object sender, EventArgs e)
+        {
+            
+            MessageBox.Show($"Estás logueado como: {Sesion.NombreUsuario}");
+        }
+
     }
 }
 
