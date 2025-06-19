@@ -38,6 +38,10 @@ namespace ControlDeHabitos2.Desktop
                     $"https://localhost:7138/api/Habitos/usuario/{Sesion.UsuarioId}"
                 );
                 dataGridView1.DataSource = habitos;
+                if (dataGridView1.Columns.Contains("HoraObjetivo"))
+                {
+                    dataGridView1.Columns["HoraObjetivo"].DefaultCellStyle.Format = "HH:mm:ss";
+                }
             }
             catch (Exception ex)
             {
@@ -61,7 +65,13 @@ namespace ControlDeHabitos2.Desktop
                     $"https://localhost:7138/api/Habitos/usuario/{Sesion.UsuarioId}"
                 );
                 dataGridView1.DataSource = habitos;
+                if (dataGridView1.Columns.Contains("HoraObjetivo"))
+                {
+                    dataGridView1.Columns["HoraObjetivo"].DefaultCellStyle.Format = "HH:mm:ss";
+                }
+
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al obtener hábitos: {ex.Message}");
@@ -128,6 +138,10 @@ namespace ControlDeHabitos2.Desktop
                 {
                     MessageBox.Show("Hábito agregado correctamente.");
                     btnCargar.PerformClick();
+                    if (dataGridView1.Columns.Contains("HoraObjetivo"))
+                    {
+                        dataGridView1.Columns["HoraObjetivo"].DefaultCellStyle.Format = "HH:mm:ss";
+                    }
                 }
                 else
                 {
@@ -237,6 +251,10 @@ namespace ControlDeHabitos2.Desktop
                 {
                     MessageBox.Show("Hábito actualizado correctamente.");
                     await CargarHabitos();
+                    if (dataGridView1.Columns.Contains("HoraObjetivo"))
+                    {
+                        dataGridView1.Columns["HoraObjetivo"].DefaultCellStyle.Format = "HH:mm:ss";
+                    }
                 }
                 else
                 {
@@ -264,9 +282,9 @@ namespace ControlDeHabitos2.Desktop
                 txtDescripcion.Text = habitoSeleccionado.Descripcion;
                 nudFrecuencia.Value = habitoSeleccionado.FrecuenciaPorSemana;
                 if (habitoSeleccionado.HoraObjetivo.HasValue)
-    dtpHoraObjetivo.Value = DateTime.Today.Add(habitoSeleccionado.HoraObjetivo.Value);
-else
-    dtpHoraObjetivo.Value = DateTime.Now;
+                    dtpHoraObjetivo.Value = DateTime.Today.Add(habitoSeleccionado.HoraObjetivo.Value);
+                else
+                    dtpHoraObjetivo.Value = DateTime.Now;
 
 
 
@@ -456,6 +474,13 @@ else
         {
 
         }
+
+        private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.ThrowException = false;
+        }
+        
+
     }
 }
 
