@@ -43,11 +43,11 @@
             btnEditar = new Button();
             process1 = new System.Diagnostics.Process();
             tabPage2 = new TabPage();
+            lblUsuarioActivo = new Label();
             tabControl1 = new TabControl();
             menuStrip1 = new MenuStrip();
             cuentaToolStripMenuItem = new ToolStripMenuItem();
             cerrarSesionToolStripMenuItem = new ToolStripMenuItem();
-            lblUsuarioActivo = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudFrecuencia).BeginInit();
             tabPage2.SuspendLayout();
@@ -212,6 +212,17 @@
             tabPage2.UseVisualStyleBackColor = true;
             tabPage2.Click += tabPage2_Click;
             // 
+            // lblUsuarioActivo
+            // 
+            lblUsuarioActivo.AutoSize = true;
+            lblUsuarioActivo.Location = new Point(651, 3);
+            lblUsuarioActivo.Name = "lblUsuarioActivo";
+            lblUsuarioActivo.Size = new Size(68, 15);
+            lblUsuarioActivo.TabIndex = 13;
+            lblUsuarioActivo.Text = "Usuario: ---";
+            lblUsuarioActivo.TextAlign = ContentAlignment.MiddleRight;
+            lblUsuarioActivo.Click += lblUsuarioActivo_Click;
+            // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage2);
@@ -247,16 +258,6 @@
             cerrarSesionToolStripMenuItem.Size = new Size(180, 22);
             cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             cerrarSesionToolStripMenuItem.Click += cerrarSesionToolStripMenuItem_Click;
-            // 
-            // lblUsuarioActivo
-            // 
-            lblUsuarioActivo.AutoSize = true;
-            lblUsuarioActivo.Location = new Point(651, 3);
-            lblUsuarioActivo.Name = "lblUsuarioActivo";
-            lblUsuarioActivo.Size = new Size(68, 15);
-            lblUsuarioActivo.TabIndex = 13;
-            lblUsuarioActivo.Text = "Usuario: ---";
-            lblUsuarioActivo.TextAlign = ContentAlignment.MiddleRight;
             // 
             // Form1
             // 

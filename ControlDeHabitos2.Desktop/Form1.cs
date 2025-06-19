@@ -21,6 +21,7 @@ namespace ControlDeHabitos2.Desktop
             {
                 lblUsuarioActivo.Text = $"Usuario: {Sesion.NombreUsuario}";
             }
+            ActualizarUsuarioActual();
         }
         private async Task CargarHabitos()
         {
@@ -428,16 +429,28 @@ namespace ControlDeHabitos2.Desktop
 
                 if (resultado == DialogResult.OK && Sesion.UsuarioId != null)
                 {
+                    ActualizarUsuarioActual();
                     await CargarHabitos();
-                    this.Show(); 
+                    this.Show();
                 }
                 else
                 {
                     this.Close();
-                   
+
 
                 }
             }
+        }
+
+        private void ActualizarUsuarioActual()
+        {
+            lblUsuarioActivo.Text = $"Usuario: {Sesion.NombreUsuario}";
+        }
+
+        private void lblUsuarioActivo_Click(object sender, EventArgs e)
+        {
+            
+            MessageBox.Show($"Estás logueado como: {Sesion.NombreUsuario}");
         }
 
     }
