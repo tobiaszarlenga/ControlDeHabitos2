@@ -111,7 +111,7 @@ namespace ControlDeHabitos2.Desktop
                     Nombre = txtNombre.Text,
                     Descripcion = txtDescripcion.Text,
                     FrecuenciaPorSemana = (int)nudFrecuencia.Value,
-                    HoraObjetivo = TimeSpan.TryParse(txtHoraObjetivo.Text, out var hora) ? hora : null,
+                    HoraObjetivo = dtpHoraObjetivo.Value.TimeOfDay,
                     FechaInicio = DateTime.Now,
                     EstaActivo = true,
                     EstaCompletoHoy = false,
@@ -222,14 +222,8 @@ namespace ControlDeHabitos2.Desktop
             habitoSeleccionado.UsuarioId = Sesion.UsuarioId.Value; // ¡Aseguramos que tenga el usuario correcto!
 
 
-            if (TimeSpan.TryParse(txtHoraObjetivo.Text, out TimeSpan hora))
-            {
-                habitoSeleccionado.HoraObjetivo = hora;
-            }
-            else
-            {
-                habitoSeleccionado.HoraObjetivo = null;
-            }
+            habitoSeleccionado.HoraObjetivo = dtpHoraObjetivo.Value.TimeOfDay;
+
 
             try
             {
@@ -269,7 +263,11 @@ namespace ControlDeHabitos2.Desktop
                 txtNombre.Text = habitoSeleccionado.Nombre;
                 txtDescripcion.Text = habitoSeleccionado.Descripcion;
                 nudFrecuencia.Value = habitoSeleccionado.FrecuenciaPorSemana;
-                txtHoraObjetivo.Text = habitoSeleccionado.HoraObjetivo?.ToString() ?? "";
+                if (habitoSeleccionado.HoraObjetivo.HasValue)
+    dtpHoraObjetivo.Value = DateTime.Today.Add(habitoSeleccionado.HoraObjetivo.Value);
+else
+    dtpHoraObjetivo.Value = DateTime.Now;
+
 
 
                 this.habitoSeleccionado = habitoSeleccionado;
@@ -402,7 +400,8 @@ namespace ControlDeHabitos2.Desktop
                 // Limpiar campos del formulario si querés
                 txtNombre.Clear();
                 txtDescripcion.Clear();
-                txtHoraObjetivo.Clear();
+                dtpHoraObjetivo.Value = DateTime.Today;
+
                 nudFrecuencia.Value = 0;
                 this.Close();
             }
@@ -449,10 +448,14 @@ namespace ControlDeHabitos2.Desktop
 
         private void lblUsuarioActivo_Click(object sender, EventArgs e)
         {
-            
+
             MessageBox.Show($"Estás logueado como: {Sesion.NombreUsuario}");
         }
 
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
