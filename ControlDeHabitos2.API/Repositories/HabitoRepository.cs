@@ -38,7 +38,7 @@ namespace ControlDeHabitos2.API.Repositories
             existente.Descripcion = habitoActualizado.Descripcion;
             existente.FechaInicio = habitoActualizado.FechaInicio;
             existente.FrecuenciaPorSemana = habitoActualizado.FrecuenciaPorSemana;
-            existente.HoraObjetivo = habitoActualizado.HoraObjetivo;
+            existente.FechaObjetivo = habitoActualizado.FechaObjetivo;
             existente.EstaActivo = habitoActualizado.EstaActivo;
             existente.EstaCompletoHoy = habitoActualizado.EstaCompletoHoy;
             existente.DiasCompletados = habitoActualizado.DiasCompletados;
