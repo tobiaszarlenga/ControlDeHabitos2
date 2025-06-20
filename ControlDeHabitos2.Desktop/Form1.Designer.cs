@@ -42,12 +42,12 @@
             btnEditar = new Button();
             process1 = new System.Diagnostics.Process();
             tabPage2 = new TabPage();
+            dtpFechaObjetivo = new DateTimePicker();
             lblUsuarioActivo = new Label();
             tabControl1 = new TabControl();
             menuStrip1 = new MenuStrip();
             cuentaToolStripMenuItem = new ToolStripMenuItem();
             cerrarSesionToolStripMenuItem = new ToolStripMenuItem();
-            dtpFechaObjetivo = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudFrecuencia).BeginInit();
             tabPage2.SuspendLayout();
@@ -115,9 +115,9 @@
             label3.AutoSize = true;
             label3.Location = new Point(31, 187);
             label3.Name = "label3";
-            label3.Size = new Size(141, 15);
+            label3.Size = new Size(74, 15);
             label3.TabIndex = 6;
-            label3.Text = "Hora Objetivo(hh:mm:ss)";
+            label3.Text = "Fecha Limite";
             label3.Click += label3_Click;
             // 
             // nudFrecuencia
@@ -205,6 +205,15 @@
             tabPage2.UseVisualStyleBackColor = true;
             tabPage2.Click += tabPage2_Click;
             // 
+            // dtpFechaObjetivo
+            // 
+            dtpFechaObjetivo.Format = DateTimePickerFormat.Short;
+            dtpFechaObjetivo.Location = new Point(186, 185);
+            dtpFechaObjetivo.Name = "dtpFechaObjetivo";
+            dtpFechaObjetivo.Size = new Size(100, 23);
+            dtpFechaObjetivo.TabIndex = 14;
+            dtpFechaObjetivo.ValueChanged += dtpFechaObjetivo_ValueChanged;
+            // 
             // lblUsuarioActivo
             // 
             lblUsuarioActivo.AutoSize = true;
@@ -251,14 +260,6 @@
             cerrarSesionToolStripMenuItem.Size = new Size(143, 22);
             cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             cerrarSesionToolStripMenuItem.Click += cerrarSesionToolStripMenuItem_Click;
-            // 
-            // dtpFechaObjetivo
-            // 
-            dtpFechaObjetivo.Format = DateTimePickerFormat.Short;
-            dtpFechaObjetivo.Location = new Point(186, 185);
-            dtpFechaObjetivo.Name = "dtpFechaObjetivo";
-            dtpFechaObjetivo.Size = new Size(100, 23);
-            dtpFechaObjetivo.TabIndex = 14;
             // 
             // Form1
             // 
