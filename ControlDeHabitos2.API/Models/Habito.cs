@@ -7,9 +7,10 @@
             public string Nombre { get; set; } = string.Empty;     
             public string? Descripcion { get; set; }              
             public DateTime FechaInicio { get; set; }              
-            public int FrecuenciaPorSemana { get; set; }           
-            public TimeSpan? HoraObjetivo { get; set; }            
-            public bool EstaActivo { get; set; }                   
+            public int FrecuenciaPorSemana { get; set; }
+        public DateTime? FechaObjetivo { get; set; }
+
+        public bool EstaActivo { get; set; }                   
             public bool EstaCompletoHoy { get; set; }              
             public int DiasCompletados { get; set; }               
             public DateTime FechaCreacion { get; set; }            

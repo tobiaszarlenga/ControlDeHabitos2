@@ -111,7 +111,8 @@ namespace ControlDeHabitos2.Desktop
                     Nombre = txtNombre.Text,
                     Descripcion = txtDescripcion.Text,
                     FrecuenciaPorSemana = (int)nudFrecuencia.Value,
-                    HoraObjetivo = TimeSpan.TryParse(txtHoraObjetivo.Text, out var hora) ? hora : null,
+                    FechaObjetivo = dtpFechaObjetivo.Value
+
                     FechaInicio = DateTime.Now,
                     EstaActivo = true,
                     EstaCompletoHoy = false,

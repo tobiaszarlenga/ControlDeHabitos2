@@ -37,7 +37,6 @@
             label3 = new Label();
             nudFrecuencia = new NumericUpDown();
             label4 = new Label();
-            txtHoraObjetivo = new TextBox();
             btnAgregar = new Button();
             btnEliminar = new Button();
             btnEditar = new Button();
@@ -48,6 +47,7 @@
             menuStrip1 = new MenuStrip();
             cuentaToolStripMenuItem = new ToolStripMenuItem();
             cerrarSesionToolStripMenuItem = new ToolStripMenuItem();
+            dtpFechaObjetivo = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudFrecuencia).BeginInit();
             tabPage2.SuspendLayout();
@@ -137,13 +137,6 @@
             label4.Text = "Frecuencia por semana";
             label4.Click += label4_Click;
             // 
-            // txtHoraObjetivo
-            // 
-            txtHoraObjetivo.Location = new Point(186, 185);
-            txtHoraObjetivo.Name = "txtHoraObjetivo";
-            txtHoraObjetivo.Size = new Size(100, 23);
-            txtHoraObjetivo.TabIndex = 9;
-            // 
             // btnAgregar
             // 
             btnAgregar.Location = new Point(131, 228);
@@ -189,11 +182,11 @@
             // 
             // tabPage2
             // 
+            tabPage2.Controls.Add(dtpFechaObjetivo);
             tabPage2.Controls.Add(lblUsuarioActivo);
             tabPage2.Controls.Add(btnEliminar);
             tabPage2.Controls.Add(btnAgregar);
             tabPage2.Controls.Add(btnEditar);
-            tabPage2.Controls.Add(txtHoraObjetivo);
             tabPage2.Controls.Add(dataGridView1);
             tabPage2.Controls.Add(label4);
             tabPage2.Controls.Add(btnCargar);
@@ -255,9 +248,17 @@
             // cerrarSesionToolStripMenuItem
             // 
             cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            cerrarSesionToolStripMenuItem.Size = new Size(180, 22);
+            cerrarSesionToolStripMenuItem.Size = new Size(143, 22);
             cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             cerrarSesionToolStripMenuItem.Click += cerrarSesionToolStripMenuItem_Click;
+            // 
+            // dtpFechaObjetivo
+            // 
+            dtpFechaObjetivo.Format = DateTimePickerFormat.Short;
+            dtpFechaObjetivo.Location = new Point(186, 185);
+            dtpFechaObjetivo.Name = "dtpFechaObjetivo";
+            dtpFechaObjetivo.Size = new Size(100, 23);
+            dtpFechaObjetivo.TabIndex = 14;
             // 
             // Form1
             // 
@@ -292,7 +293,6 @@
         private Label label3;
         private NumericUpDown nudFrecuencia;
         private Label label4;
-        private TextBox txtHoraObjetivo;
         private Button btnAgregar;
         private Button btnEliminar;
         private Button btnEditar;
@@ -303,5 +303,6 @@
         private ToolStripMenuItem cuentaToolStripMenuItem;
         private ToolStripMenuItem cerrarSesionToolStripMenuItem;
         private Label lblUsuarioActivo;
+        private DateTimePicker dtpFechaObjetivo;
     }
 }
