@@ -1,39 +1,48 @@
 ﻿using ControlDeHabitos2.API.Models;
 using ControlDeHabitos2.API.Interfaces;
+using ControlDeHabitos2.API.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ControlDeHabitos2.API.Repositories
 {
     public class HabitoRepository : IHabitoRepository
     {
-        private readonly List<Habito> _habitos = new();
-        private int _siguienteId = 1;
+        private readonly AppDbContext _context;
+
+        public HabitoRepository(AppDbContext context)
+        {
+            _context = context;
+        }
 
         public List<Habito> ObtenerPorUsuarioId(int usuarioId)
         {
-            return _habitos.Where(h => h.UsuarioId == usuarioId).ToList();
+            return _context.Habitos
+                .Where(h => h.UsuarioId == usuarioId)
+                .ToList();
         }
 
         public List<Habito> ObtenerTodos()
         {
-            return _habitos;
+            return _context.Habitos.ToList();
         }
 
         public Habito? ObtenerPorId(int id)
         {
-            return _habitos.FirstOrDefault(h => h.Id == id);
+            return _context.Habitos.FirstOrDefault(h => h.Id == id);
         }
 
         public void Crear(Habito nuevoHabito)
         {
-            nuevoHabito.Id = _siguienteId++;
             nuevoHabito.FechaCreacion = DateTime.Now;
-            _habitos.Add(nuevoHabito);
+            _context.Habitos.Add(nuevoHabito);
+            _context.SaveChanges();
         }
 
         public void Actualizar(Habito habitoActualizado)
         {
-            var existente = ObtenerPorId(habitoActualizado.Id);
+            var existente = _context.Habitos.FirstOrDefault(h => h.Id == habitoActualizado.Id);
             if (existente is null) return;
+
             existente.Nombre = habitoActualizado.Nombre;
             existente.Descripcion = habitoActualizado.Descripcion;
             existente.FechaInicio = habitoActualizado.FechaInicio;
@@ -43,13 +52,18 @@ namespace ControlDeHabitos2.API.Repositories
             existente.EstaCompletoHoy = habitoActualizado.EstaCompletoHoy;
             existente.DiasCompletados = habitoActualizado.DiasCompletados;
             existente.FechaUltimaCompletacion = habitoActualizado.FechaUltimaCompletacion;
+
+            _context.SaveChanges();
         }
 
         public void Eliminar(int id)
         {
-            var habito = ObtenerPorId(id);
+            var habito = _context.Habitos.FirstOrDefault(h => h.Id == id);
             if (habito is not null)
-                _habitos.Remove(habito);
+            {
+                _context.Habitos.Remove(habito);
+                _context.SaveChanges();
+            }
         }
     }
 }

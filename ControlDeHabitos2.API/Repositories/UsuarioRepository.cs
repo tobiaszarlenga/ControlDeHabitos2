@@ -40,7 +40,7 @@ namespace ControlDeHabitos2.API.Repositories
             }
         }
 
-        public Usuario? ValidarLogin(string nombre, string contraseña)
+        public Usuario? ObtenerPorCredenciales(string nombre, string contraseña)
         {
             return _context.Usuarios.FirstOrDefault(u =>
                 u.Nombre == nombre && u.Contraseña == contraseña);

@@ -8,8 +8,8 @@ namespace ControlDeHabitos2.API.Interfaces
         Usuario? ObtenerPorId(int id);
         void Agregar(Usuario usuario);
         void Eliminar(int id);
-        Usuario? ValidarLogin(string nombre, string contraseña);
-
+        Usuario? ObtenerPorCredenciales(string nombre, string contraseña);
+      
 
     }
 }
