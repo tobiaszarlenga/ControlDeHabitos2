@@ -46,6 +46,8 @@ namespace ControlDeHabitos2.Desktop
         }
 
 
+        private readonly HttpClient _httpClient = new();
+
         private async void btnCargar_Click(object sender, EventArgs e)
         {
             if (Sesion.UsuarioId == null)
@@ -56,8 +58,7 @@ namespace ControlDeHabitos2.Desktop
 
             try
             {
-                var client = new HttpClient();
-                var habitos = await client.GetFromJsonAsync<List<Habito>>(
+                var habitos = await _httpClient.GetFromJsonAsync<List<Habito>>(
                     $"https://localhost:7138/api/Habitos/usuario/{Sesion.UsuarioId}"
                 );
                 dataGridView1.DataSource = habitos;
@@ -67,6 +68,7 @@ namespace ControlDeHabitos2.Desktop
                 MessageBox.Show($"Error al obtener hábitos: {ex.Message}");
             }
         }
+
 
 
         private void textBox1_TextChanged(object sender, EventArgs e)

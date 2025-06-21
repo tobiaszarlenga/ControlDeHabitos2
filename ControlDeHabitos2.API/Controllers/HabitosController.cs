@@ -42,6 +42,8 @@ namespace ControlDeHabitos2.API.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Habito nuevoHabito)
         {
+            nuevoHabito.Usuario = default!;
+
             _habitoService.Crear(nuevoHabito);
             return CreatedAtAction(nameof(GetById), new { id = nuevoHabito.Id }, nuevoHabito);
         }

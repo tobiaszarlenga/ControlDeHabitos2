@@ -44,11 +44,11 @@ namespace ControlDeHabitos2.API.Services
         {
             _repositorio.Eliminar(id);
         }
-        public Usuario? Validar(string nombre, string contraseña)
-        {
-            return _repositorio.ObtenerTodos()
-                .FirstOrDefault(u => u.Nombre == nombre && u.Contraseña == contraseña);
-        }
+      public Usuario? Validar(string nombre, string contraseña)
+{
+    return _repositorio.ObtenerPorCredenciales(nombre, contraseña);
+}
+
 
 
     }

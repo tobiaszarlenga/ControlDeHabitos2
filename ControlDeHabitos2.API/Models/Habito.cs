@@ -1,4 +1,8 @@
-﻿namespace ControlDeHabitos2.API.Models
+﻿using System.Text.Json.Serialization;
+
+
+
+namespace ControlDeHabitos2.API.Models
 {
     public class Habito
     {
@@ -16,8 +20,12 @@
             public DateTime FechaCreacion { get; set; }            
             public DateTime? FechaUltimaCompletacion { get; set; }
             public int UsuarioId { get; set; }
+        [JsonIgnore]
+        public Usuario? Usuario { get; set; }
 
-        
 
-}
+
+
+
+    }
 }

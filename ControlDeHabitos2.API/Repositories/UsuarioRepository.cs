@@ -1,42 +1,49 @@
-﻿using ControlDeHabitos2.API.Interfaces;
+﻿using ControlDeHabitos2.API.Data;
+using ControlDeHabitos2.API.Interfaces;
 using ControlDeHabitos2.API.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ControlDeHabitos2.API.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {
-        private readonly List<Usuario> _usuarios = new();
-        private int _siguienteId = 1;
+        private readonly AppDbContext _context;
+
+        public UsuarioRepository(AppDbContext context)
+        {
+            _context = context;
+        }
 
         public void Agregar(Usuario usuario)
         {
-            usuario.Id = _siguienteId++;
-            _usuarios.Add(usuario);
+            _context.Usuarios.Add(usuario);
+            _context.SaveChanges();
         }
 
         public List<Usuario> ObtenerTodos()
         {
-            return _usuarios;
+            return _context.Usuarios.ToList();
         }
 
         public Usuario? ObtenerPorId(int id)
         {
-            return _usuarios.FirstOrDefault(u => u.Id == id);
+            return _context.Usuarios.FirstOrDefault(u => u.Id == id);
         }
+
         public void Eliminar(int id)
         {
-            var usuario = _usuarios.FirstOrDefault(u => u.Id == id);
+            var usuario = _context.Usuarios.FirstOrDefault(u => u.Id == id);
             if (usuario != null)
             {
-                _usuarios.Remove(usuario);
+                _context.Usuarios.Remove(usuario);
+                _context.SaveChanges();
             }
         }
 
-        public Usuario? ValidarLogin(string nombre, string contraseña)
+        public Usuario? ObtenerPorCredenciales(string nombre, string contraseña)
         {
-            return _usuarios.FirstOrDefault(u =>
+            return _context.Usuarios.FirstOrDefault(u =>
                 u.Nombre == nombre && u.Contraseña == contraseña);
         }
-
     }
 }
