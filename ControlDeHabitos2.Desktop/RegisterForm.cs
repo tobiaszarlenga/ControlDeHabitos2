@@ -20,6 +20,17 @@ namespace ControlDeHabitos2.Desktop
             this.AcceptButton = btnRegistrar;
 
         }
+        private string ObtenerMensajeExcepcion(Exception ex)
+        {
+            var mensajes = new List<string>();
+            while (ex != null)
+            {
+                mensajes.Add(ex.Message);
+                ex = ex.InnerException;
+            }
+            return string.Join(" → ", mensajes);
+        }
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -65,8 +76,10 @@ namespace ControlDeHabitos2.Desktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error: {ex.Message}");
+                var mensajeCompleto = ObtenerMensajeExcepcion(ex);
+                MessageBox.Show($"Error al registrar usuario:\n{mensajeCompleto}");
             }
+
 
 
         }

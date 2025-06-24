@@ -16,9 +16,17 @@ namespace ControlDeHabitos2.API.Repositories
 
         public void Agregar(Usuario usuario)
         {
-            _context.Usuarios.Add(usuario);
-            _context.SaveChanges();
+            try
+            {
+                _context.Usuarios.Add(usuario);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al guardar usuario", ex); // propaga el error exacto
+            }
         }
+
 
         public List<Usuario> ObtenerTodos()
         {
@@ -45,5 +53,10 @@ namespace ControlDeHabitos2.API.Repositories
             return _context.Usuarios.FirstOrDefault(u =>
                 u.Nombre == nombre && u.Contraseña == contraseña);
         }
+        public bool ExistePorNombre(string nombre)
+        {
+            return _context.Usuarios.Any(u => u.Nombre == nombre);
+        }
+
     }
 }
