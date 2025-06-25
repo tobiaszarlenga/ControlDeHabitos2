@@ -18,8 +18,14 @@ namespace ControlDeHabitos2.API.Services
             if (string.IsNullOrWhiteSpace(usuario.Nombre) || string.IsNullOrWhiteSpace(usuario.Contraseña))
                 throw new Exception("Nombre y contraseña son obligatorios.");
 
+            // Validar si ya existe un usuario con ese nombre
+            if (_repositorio.ExistePorNombre(usuario.Nombre))
+                throw new Exception("El nombre de usuario ya está registrado.");
+
+            // Guardar en la base de datos
             _repositorio.Agregar(usuario);
         }
+
 
         public List<Usuario> ObtenerTodos()
         {
