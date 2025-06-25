@@ -37,7 +37,10 @@
             label4 = new Label();
             btnAgregar = new Button();
             process1 = new System.Diagnostics.Process();
-            tabPage2 = new TabPage();
+            tabCargar = new TabPage();
+            btnGuardarCambios = new Button();
+            lblEditando = new Label();
+            label5 = new Label();
             dtpFechaObjetivo = new DateTimePicker();
             lblUsuarioActivo = new Label();
             tabControl1 = new TabControl();
@@ -50,7 +53,7 @@
             cuentaToolStripMenuItem = new ToolStripMenuItem();
             cerrarSesionToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)nudFrecuencia).BeginInit();
-            tabPage2.SuspendLayout();
+            tabCargar.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -59,7 +62,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(407, 70);
+            txtNombre.Location = new Point(405, 119);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(100, 23);
             txtNombre.TabIndex = 2;
@@ -67,7 +70,7 @@
             // 
             // txtDescripcion
             // 
-            txtDescripcion.Location = new Point(407, 110);
+            txtDescripcion.Location = new Point(405, 159);
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(100, 23);
             txtDescripcion.TabIndex = 3;
@@ -75,7 +78,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(252, 74);
+            label1.Location = new Point(250, 123);
             label1.Name = "label1";
             label1.Size = new Size(109, 15);
             label1.TabIndex = 4;
@@ -85,7 +88,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(252, 114);
+            label2.Location = new Point(250, 163);
             label2.Name = "label2";
             label2.Size = new Size(126, 15);
             label2.TabIndex = 5;
@@ -95,7 +98,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(252, 187);
+            label3.Location = new Point(250, 236);
             label3.Name = "label3";
             label3.Size = new Size(74, 15);
             label3.TabIndex = 6;
@@ -104,7 +107,7 @@
             // 
             // nudFrecuencia
             // 
-            nudFrecuencia.Location = new Point(407, 149);
+            nudFrecuencia.Location = new Point(405, 198);
             nudFrecuencia.Name = "nudFrecuencia";
             nudFrecuencia.Size = new Size(100, 23);
             nudFrecuencia.TabIndex = 7;
@@ -112,7 +115,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(252, 150);
+            label4.Location = new Point(250, 199);
             label4.Name = "label4";
             label4.Size = new Size(129, 15);
             label4.TabIndex = 8;
@@ -121,7 +124,7 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(352, 228);
+            btnAgregar.Location = new Point(350, 277);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 10;
@@ -141,30 +144,64 @@
             process1.StartInfo.UserName = "";
             process1.SynchronizingObject = this;
             // 
-            // tabPage2
+            // tabCargar
             // 
-            tabPage2.Controls.Add(dtpFechaObjetivo);
-            tabPage2.Controls.Add(btnAgregar);
-            tabPage2.Controls.Add(label4);
-            tabPage2.Controls.Add(nudFrecuencia);
-            tabPage2.Controls.Add(txtNombre);
-            tabPage2.Controls.Add(label3);
-            tabPage2.Controls.Add(txtDescripcion);
-            tabPage2.Controls.Add(label2);
-            tabPage2.Controls.Add(label1);
-            tabPage2.Location = new Point(4, 24);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(768, 298);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "AGREGAR";
-            tabPage2.UseVisualStyleBackColor = true;
-            tabPage2.Click += tabPage2_Click;
+            tabCargar.Controls.Add(btnGuardarCambios);
+            tabCargar.Controls.Add(lblEditando);
+            tabCargar.Controls.Add(label5);
+            tabCargar.Controls.Add(dtpFechaObjetivo);
+            tabCargar.Controls.Add(btnAgregar);
+            tabCargar.Controls.Add(label4);
+            tabCargar.Controls.Add(nudFrecuencia);
+            tabCargar.Controls.Add(txtNombre);
+            tabCargar.Controls.Add(label3);
+            tabCargar.Controls.Add(txtDescripcion);
+            tabCargar.Controls.Add(label2);
+            tabCargar.Controls.Add(label1);
+            tabCargar.Location = new Point(4, 24);
+            tabCargar.Name = "tabCargar";
+            tabCargar.Padding = new Padding(3);
+            tabCargar.Size = new Size(768, 356);
+            tabCargar.TabIndex = 1;
+            tabCargar.Text = "AGREGAR";
+            tabCargar.UseVisualStyleBackColor = true;
+            tabCargar.Click += tabPage2_Click;
+            // 
+            // btnGuardarCambios
+            // 
+            btnGuardarCambios.Location = new Point(317, 277);
+            btnGuardarCambios.Name = "btnGuardarCambios";
+            btnGuardarCambios.Size = new Size(142, 23);
+            btnGuardarCambios.TabIndex = 17;
+            btnGuardarCambios.Text = "Guardar Cambios";
+            btnGuardarCambios.UseVisualStyleBackColor = true;
+            btnGuardarCambios.Visible = false;
+            btnGuardarCambios.Click += btnGuardarCambios_Click;
+            // 
+            // lblEditando
+            // 
+            lblEditando.AutoSize = true;
+            lblEditando.Location = new Point(283, 63);
+            lblEditando.Name = "lblEditando";
+            lblEditando.Size = new Size(198, 15);
+            lblEditando.TabIndex = 16;
+            lblEditando.Text = "Estás editando el hábito: leer mucho";
+            lblEditando.Visible = false;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(335, 23);
+            label5.Name = "label5";
+            label5.Size = new Size(90, 15);
+            label5.TabIndex = 15;
+            label5.Text = "NUEVO HABITO";
+            label5.Click += label5_Click;
             // 
             // dtpFechaObjetivo
             // 
             dtpFechaObjetivo.Format = DateTimePickerFormat.Short;
-            dtpFechaObjetivo.Location = new Point(407, 185);
+            dtpFechaObjetivo.Location = new Point(405, 234);
             dtpFechaObjetivo.Name = "dtpFechaObjetivo";
             dtpFechaObjetivo.Size = new Size(100, 23);
             dtpFechaObjetivo.TabIndex = 14;
@@ -173,7 +210,7 @@
             // lblUsuarioActivo
             // 
             lblUsuarioActivo.AutoSize = true;
-            lblUsuarioActivo.Location = new Point(12, 9);
+            lblUsuarioActivo.Location = new Point(351, 9);
             lblUsuarioActivo.Name = "lblUsuarioActivo";
             lblUsuarioActivo.Size = new Size(68, 15);
             lblUsuarioActivo.TabIndex = 13;
@@ -183,12 +220,12 @@
             // 
             // tabControl1
             // 
-            tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabCargar);
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Location = new Point(12, 27);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(776, 326);
+            tabControl1.Size = new Size(776, 384);
             tabControl1.TabIndex = 14;
             tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
             // 
@@ -201,7 +238,7 @@
             tabPage1.Location = new Point(4, 24);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(768, 298);
+            tabPage1.Size = new Size(768, 356);
             tabPage1.TabIndex = 2;
             tabPage1.Text = "HABITOS";
             tabPage1.UseVisualStyleBackColor = true;
@@ -286,8 +323,8 @@
             Text = "Form1";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)nudFrecuencia).EndInit();
-            tabPage2.ResumeLayout(false);
-            tabPage2.PerformLayout();
+            tabCargar.ResumeLayout(false);
+            tabCargar.PerformLayout();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -308,7 +345,7 @@
         private Button btnAgregar;
         private System.Diagnostics.Process process1;
         private TabControl tabControl1;
-        private TabPage tabPage2;
+        private TabPage tabCargar;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem cuentaToolStripMenuItem;
         private ToolStripMenuItem cerrarSesionToolStripMenuItem;
@@ -319,5 +356,8 @@
         private Button btnEditar;
         private DataGridView dataGridView1;
         private Button btnCargar;
+        private Label label5;
+        private Label lblEditando;
+        private Button btnGuardarCambios;
     }
 }

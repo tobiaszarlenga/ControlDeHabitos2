@@ -1,7 +1,8 @@
+Ôªøusing ControlDeHabitos2.API.Models;
 using Microsoft.AspNetCore.Mvc.TagHelpers;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using ControlDeHabitos2.API.Models;
+using System.Windows.Forms;
 
 
 namespace ControlDeHabitos2.Desktop
@@ -27,7 +28,7 @@ namespace ControlDeHabitos2.Desktop
         {
             if (Sesion.UsuarioId == null)
             {
-                MessageBox.Show("Debes iniciar sesiÛn.");
+                MessageBox.Show("Debes iniciar sesi√≥n.");
                 return;
             }
 
@@ -41,7 +42,7 @@ namespace ControlDeHabitos2.Desktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al obtener h·bitos: {ex.Message}");
+                MessageBox.Show($"Error al obtener h√°bitos: {ex.Message}");
             }
         }
 
@@ -52,7 +53,7 @@ namespace ControlDeHabitos2.Desktop
         {
             if (Sesion.UsuarioId == null)
             {
-                MessageBox.Show("Debes iniciar sesiÛn.");
+                MessageBox.Show("Debes iniciar sesi√≥n.");
                 return;
             }
 
@@ -65,7 +66,7 @@ namespace ControlDeHabitos2.Desktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al obtener h·bitos: {ex.Message}");
+                MessageBox.Show($"Error al obtener h√°bitos: {ex.Message}");
             }
         }
 
@@ -100,7 +101,7 @@ namespace ControlDeHabitos2.Desktop
         {
             if (Sesion.UsuarioId == null)
             {
-                MessageBox.Show("Debes iniciar sesiÛn.");
+                MessageBox.Show("Debes iniciar sesi√≥n.");
                 return;
             }
 
@@ -120,7 +121,7 @@ namespace ControlDeHabitos2.Desktop
                     DiasCompletados = 0,
                     FechaCreacion = DateTime.Now,
                     FechaUltimaCompletacion = null,
-                    UsuarioId = Sesion.UsuarioId.Value // °IMPORTANTE!
+                    UsuarioId = Sesion.UsuarioId.Value // ¬°IMPORTANTE!
                 };
 
                 var client = new HttpClient();
@@ -128,13 +129,13 @@ namespace ControlDeHabitos2.Desktop
 
                 if (response.IsSuccessStatusCode)
                 {
-                    MessageBox.Show("H·bito agregado correctamente.");
+                    MessageBox.Show("H√°bito agregado correctamente.");
                     btnCargar.PerformClick();
                 }
                 else
                 {
                     var error = await response.Content.ReadAsStringAsync();
-                    MessageBox.Show($"Error al agregar h·bito:\n{error}");
+                    MessageBox.Show($"Error al agregar h√°bito:\n{error}");
                 }
             }
             catch (Exception ex)
@@ -148,26 +149,26 @@ namespace ControlDeHabitos2.Desktop
         {
             if (Sesion.UsuarioId == null)
             {
-                MessageBox.Show("Debes iniciar sesiÛn.");
+                MessageBox.Show("Debes iniciar sesi√≥n.");
                 return;
             }
 
             if (dataGridView1.CurrentRow == null)
             {
-                MessageBox.Show("Selecciona un h·bito para eliminar.");
+                MessageBox.Show("Selecciona un h√°bito para eliminar.");
                 return;
             }
 
             var habitoSeleccionado = dataGridView1.CurrentRow.DataBoundItem as Habito;
             if (habitoSeleccionado == null)
             {
-                MessageBox.Show("No se pudo obtener el h·bito.");
+                MessageBox.Show("No se pudo obtener el h√°bito.");
                 return;
             }
 
             var resultado = MessageBox.Show(
-                $"øEst·s seguro de que quieres eliminar '{habitoSeleccionado.Nombre}'?",
-                "Confirmar eliminaciÛn", MessageBoxButtons.YesNo);
+                $"¬øEst√°s seguro de que quieres eliminar '{habitoSeleccionado.Nombre}'?",
+                "Confirmar eliminaci√≥n", MessageBoxButtons.YesNo);
 
             if (resultado == DialogResult.Yes)
             {
@@ -178,7 +179,7 @@ namespace ControlDeHabitos2.Desktop
 
                     if (response.IsSuccessStatusCode)
                     {
-                        MessageBox.Show("H·bito eliminado correctamente.");
+                        MessageBox.Show("H√°bito eliminado correctamente.");
                         btnCargar.PerformClick();
                     }
                     else
@@ -195,17 +196,17 @@ namespace ControlDeHabitos2.Desktop
         }
 
 
-        private async void btnEditar_Click(object sender, EventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
         {
             if (Sesion.UsuarioId == null)
             {
-                MessageBox.Show("Debes iniciar sesiÛn.");
+                MessageBox.Show("Debes iniciar sesi√≥n.");
                 return;
             }
 
             if (dataGridView1.CurrentRow == null)
             {
-                MessageBox.Show("Seleccion· un h·bito para editar.");
+                MessageBox.Show("Seleccion√° un h√°bito para editar.");
                 return;
             }
 
@@ -213,42 +214,35 @@ namespace ControlDeHabitos2.Desktop
 
             if (habitoSeleccionado == null)
             {
-                MessageBox.Show("No se pudo obtener el h·bito.");
+                MessageBox.Show("No se pudo obtener el h√°bito.");
                 return;
             }
 
-            // Actualizamos datos del formulario
-            habitoSeleccionado.Nombre = txtNombre.Text;
-            habitoSeleccionado.Descripcion = txtDescripcion.Text;
-            habitoSeleccionado.FrecuenciaPorSemana = (int)nudFrecuencia.Value;
-            habitoSeleccionado.UsuarioId = Sesion.UsuarioId.Value; // °Aseguramos que tenga el usuario correcto!
-            habitoSeleccionado.FechaObjetivo = dtpFechaObjetivo.Value;
+            // Cargamos los datos en los campos
+            txtNombre.Text = habitoSeleccionado.Nombre;
+            txtDescripcion.Text = habitoSeleccionado.Descripcion;
+            nudFrecuencia.Value = habitoSeleccionado.FrecuenciaPorSemana;
 
+            // Aseguramos que la fecha no sea null
+            dtpFechaObjetivo.Value = habitoSeleccionado.FechaObjetivo ?? DateTime.Today;
 
-            try
-            {
-                var client = new HttpClient();
-                var response = await client.PutAsJsonAsync(
-                    $"https://localhost:7138/api/Habitos/{habitoSeleccionado.Id}",
-                    habitoSeleccionado
-                );
+            // Guardamos el ID para usar despu√©s al guardar cambios
+            btnGuardarCambios.Tag = habitoSeleccionado.Id;
 
-                if (response.IsSuccessStatusCode)
-                {
-                    MessageBox.Show("H·bito actualizado correctamente.");
-                    await CargarHabitos();
-                }
-                else
-                {
-                    var error = await response.Content.ReadAsStringAsync();
-                    MessageBox.Show($"Error al actualizar el h·bito:\n{error}");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}");
-            }
+            // Mostramos mensaje de edici√≥n
+            lblEditando.Text = $"üîß Est√°s editando el h√°bito: {habitoSeleccionado.Nombre}";
+            lblEditando.Visible = true;
+
+            // Alternamos los botones
+            btnGuardarCambios.Visible = true;
+            btnAgregar.Visible = false;
+
+            // Cambiamos de pesta√±a al tab "CARGAR"
+            tabControl1.SelectedTab = tabCargar;
+
         }
+
+
 
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -275,21 +269,6 @@ namespace ControlDeHabitos2.Desktop
             }
         }
 
-
-
-
-
-
-        private void uSUARIOToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -306,9 +285,9 @@ namespace ControlDeHabitos2.Desktop
 
 
             string nombre = Microsoft.VisualBasic.Interaction.InputBox("Nombre de usuario:");
-            string contraseÒa = Microsoft.VisualBasic.Interaction.InputBox("ContraseÒa:");
+            string contrase√±a = Microsoft.VisualBasic.Interaction.InputBox("Contrase√±a:");
 
-            var usuario = new Usuario { Nombre = nombre, ContraseÒa = contraseÒa };
+            var usuario = new Usuario { Nombre = nombre, Contrase√±a = contrase√±a };
             try
             {
                 var client = new HttpClient();
@@ -324,19 +303,19 @@ namespace ControlDeHabitos2.Desktop
                     }
 
                     Sesion.UsuarioId = usuarioLogueado.Id;
-                    MessageBox.Show($"SesiÛn iniciada correctamente como: {usuarioLogueado.Nombre}");
+                    MessageBox.Show($"Sesi√≥n iniciada correctamente como: {usuarioLogueado.Nombre}");
 
                     await CargarHabitos();
                 }
 
                 else
                 {
-                    MessageBox.Show("Usuario o contraseÒa incorrectos.");
+                    MessageBox.Show("Usuario o contrase√±a incorrectos.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al iniciar sesiÛn: {ex.Message}");
+                MessageBox.Show($"Error al iniciar sesi√≥n: {ex.Message}");
             }
 
         }
@@ -344,15 +323,15 @@ namespace ControlDeHabitos2.Desktop
         private async void btnRegistrarse_Click(object sender, EventArgs e)
         {
             string nombre = Microsoft.VisualBasic.Interaction.InputBox("Nombre de usuario:");
-            string contraseÒa = Microsoft.VisualBasic.Interaction.InputBox("ContraseÒa:");
+            string contrase√±a = Microsoft.VisualBasic.Interaction.InputBox("Contrase√±a:");
 
-            if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(contraseÒa))
+            if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(contrase√±a))
             {
-                MessageBox.Show("Nombre y contraseÒa son obligatorios.");
+                MessageBox.Show("Nombre y contrase√±a son obligatorios.");
                 return;
             }
 
-            var nuevoUsuario = new Usuario { Nombre = nombre, ContraseÒa = contraseÒa };
+            var nuevoUsuario = new Usuario { Nombre = nombre, Contrase√±a = contrase√±a };
 
             try
             {
@@ -387,18 +366,18 @@ namespace ControlDeHabitos2.Desktop
         {
             if (Sesion.UsuarioId == null)
             {
-                MessageBox.Show("No hay sesiÛn activa.");
+                MessageBox.Show("No hay sesi√≥n activa.");
                 return;
             }
 
-            var confirm = MessageBox.Show("øEst·s seguro de cerrar sesiÛn?", "Confirmar", MessageBoxButtons.YesNo);
+            var confirm = MessageBox.Show("¬øEst√°s seguro de cerrar sesi√≥n?", "Confirmar", MessageBoxButtons.YesNo);
             if (confirm == DialogResult.Yes)
             {
                 Sesion.UsuarioId = null;
-                MessageBox.Show("SesiÛn cerrada correctamente.");
+                MessageBox.Show("Sesi√≥n cerrada correctamente.");
                 dataGridView1.DataSource = null;
 
-                // Limpiar campos del formulario si querÈs
+                // Limpiar campos del formulario si quer√©s
                 txtNombre.Clear();
                 txtDescripcion.Clear();
                 dtpFechaObjetivo.Value = DateTime.Today;
@@ -415,12 +394,12 @@ namespace ControlDeHabitos2.Desktop
 
         private async void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var confirm = MessageBox.Show("øEst·s seguro de cerrar sesiÛn?", "Confirmar", MessageBoxButtons.YesNo);
+            var confirm = MessageBox.Show("¬øEst√°s seguro de cerrar sesi√≥n?", "Confirmar", MessageBoxButtons.YesNo);
             if (confirm == DialogResult.Yes)
             {
                 Sesion.UsuarioId = null;
                 Sesion.NombreUsuario = null;
-                MessageBox.Show("SesiÛn cerrada correctamente.");
+                MessageBox.Show("Sesi√≥n cerrada correctamente.");
 
                 this.Hide();
 
@@ -450,13 +429,90 @@ namespace ControlDeHabitos2.Desktop
         private void lblUsuarioActivo_Click(object sender, EventArgs e)
         {
 
-            MessageBox.Show($"Est·s logueado como: {Sesion.NombreUsuario}");
+            MessageBox.Show($"Est√°s logueado como: {Sesion.NombreUsuario}");
         }
 
         private void dtpFechaObjetivo_ValueChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void LimpiarFormulario()
+        {
+            txtNombre.Text = "";
+            txtDescripcion.Text = "";
+            nudFrecuencia.Value = 0;
+            dtpFechaObjetivo.Value = DateTime.Today;
+        }
+
+
+        private async void btnGuardarCambios_Click(object sender, EventArgs e)
+        {
+            if (btnGuardarCambios.Tag == null)
+            {
+                MessageBox.Show("No hay h√°bito seleccionado para editar.");
+                return;
+            }
+
+            int idHabito = (int)btnGuardarCambios.Tag;
+            if (Sesion.UsuarioId == null)
+            {
+                MessageBox.Show("Sesi√≥n expirada. Debes iniciar sesi√≥n nuevamente.");
+                return;
+            }
+
+            var habitoEditado = new Habito
+            {
+                Id = idHabito,
+                Nombre = txtNombre.Text,
+                Descripcion = txtDescripcion.Text,
+                FrecuenciaPorSemana = (int)nudFrecuencia.Value,
+                FechaObjetivo = dtpFechaObjetivo.Value,
+
+                UsuarioId = Sesion.UsuarioId.Value
+            };
+
+            try
+            {
+                var client = new HttpClient();
+                var response = await client.PutAsJsonAsync(
+                    $"https://localhost:7138/api/Habitos/{idHabito}",
+                    habitoEditado
+                );
+
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("H√°bito editado correctamente.");
+
+                    // Actualiza la grilla
+                    await CargarHabitos();
+
+                    // Reset visual
+                    btnGuardarCambios.Visible = false;
+                    btnAgregar.Visible = true;
+                    lblEditando.Visible = false;
+                    btnGuardarCambios.Tag = null;
+                    LimpiarFormulario();
+
+                    // Cambiamos a la pesta√±a de h√°bitos si quer√©s
+                    tabControl1.SelectedTab = tabPage1; // o como se llame el tab de visualizaci√≥n
+                }
+                else
+                {
+                    var error = await response.Content.ReadAsStringAsync();
+                    MessageBox.Show($"Error al actualizar el h√°bito:\n{error}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+        }
+
     }
 }
 
