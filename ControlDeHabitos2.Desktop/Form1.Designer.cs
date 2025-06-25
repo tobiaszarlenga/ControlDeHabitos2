@@ -62,23 +62,27 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(405, 119);
+            txtNombre.Location = new Point(407, 93);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(100, 23);
+            txtNombre.Size = new Size(137, 23);
             txtNombre.TabIndex = 2;
             txtNombre.TextChanged += textBox1_TextChanged;
             // 
             // txtDescripcion
             // 
-            txtDescripcion.Location = new Point(405, 159);
+            txtDescripcion.AcceptsReturn = true;
+            txtDescripcion.Location = new Point(407, 211);
+            txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(100, 23);
+            txtDescripcion.ScrollBars = ScrollBars.Vertical;
+            txtDescripcion.Size = new Size(137, 25);
             txtDescripcion.TabIndex = 3;
+            txtDescripcion.TextChanged += txtDescripcion_TextChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(250, 123);
+            label1.Location = new Point(252, 96);
             label1.Name = "label1";
             label1.Size = new Size(109, 15);
             label1.TabIndex = 4;
@@ -88,7 +92,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(250, 163);
+            label2.Location = new Point(252, 211);
             label2.Name = "label2";
             label2.Size = new Size(126, 15);
             label2.TabIndex = 5;
@@ -98,7 +102,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(250, 236);
+            label3.Location = new Point(252, 170);
             label3.Name = "label3";
             label3.Size = new Size(74, 15);
             label3.TabIndex = 6;
@@ -107,15 +111,15 @@
             // 
             // nudFrecuencia
             // 
-            nudFrecuencia.Location = new Point(405, 198);
+            nudFrecuencia.Location = new Point(407, 132);
             nudFrecuencia.Name = "nudFrecuencia";
-            nudFrecuencia.Size = new Size(100, 23);
+            nudFrecuencia.Size = new Size(36, 23);
             nudFrecuencia.TabIndex = 7;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(250, 199);
+            label4.Location = new Point(252, 133);
             label4.Name = "label4";
             label4.Size = new Size(129, 15);
             label4.TabIndex = 8;
@@ -124,7 +128,7 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(350, 277);
+            btnAgregar.Location = new Point(252, 260);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 10;
@@ -169,7 +173,7 @@
             // 
             // btnGuardarCambios
             // 
-            btnGuardarCambios.Location = new Point(317, 277);
+            btnGuardarCambios.Location = new Point(252, 260);
             btnGuardarCambios.Name = "btnGuardarCambios";
             btnGuardarCambios.Size = new Size(142, 23);
             btnGuardarCambios.TabIndex = 17;
@@ -201,9 +205,9 @@
             // dtpFechaObjetivo
             // 
             dtpFechaObjetivo.Format = DateTimePickerFormat.Short;
-            dtpFechaObjetivo.Location = new Point(405, 234);
+            dtpFechaObjetivo.Location = new Point(407, 168);
             dtpFechaObjetivo.Name = "dtpFechaObjetivo";
-            dtpFechaObjetivo.Size = new Size(100, 23);
+            dtpFechaObjetivo.Size = new Size(95, 23);
             dtpFechaObjetivo.TabIndex = 14;
             dtpFechaObjetivo.ValueChanged += dtpFechaObjetivo_ValueChanged;
             // 

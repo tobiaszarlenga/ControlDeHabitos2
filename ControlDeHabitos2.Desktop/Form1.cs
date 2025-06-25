@@ -513,6 +513,18 @@ namespace ControlDeHabitos2.Desktop
             }
         }
 
+        private void txtDescripcion_TextChanged(object sender, EventArgs e)
+        {
+            var txt = sender as TextBox;
+            if (txt == null) return;
+
+            // Solo actualiza el alto si el texto excede la altura actual
+            Size size = TextRenderer.MeasureText(txt.Text, txt.Font, new Size(txt.Width, int.MaxValue), TextFormatFlags.WordBreak);
+            int nuevaAltura = size.Height + 10;
+            if (nuevaAltura > txt.MinimumSize.Height)
+                txt.Height = nuevaAltura;
+        }
+
     }
 }
 
