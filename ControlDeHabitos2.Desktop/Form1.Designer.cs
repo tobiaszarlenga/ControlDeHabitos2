@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            btnCargar = new Button();
             txtNombre = new TextBox();
             txtDescripcion = new TextBox();
             label1 = new Label();
@@ -38,46 +36,30 @@
             nudFrecuencia = new NumericUpDown();
             label4 = new Label();
             btnAgregar = new Button();
-            btnEliminar = new Button();
-            btnEditar = new Button();
             process1 = new System.Diagnostics.Process();
             tabPage2 = new TabPage();
             dtpFechaObjetivo = new DateTimePicker();
             lblUsuarioActivo = new Label();
             tabControl1 = new TabControl();
+            tabPage1 = new TabPage();
+            btnEliminar = new Button();
+            btnEditar = new Button();
+            dataGridView1 = new DataGridView();
+            btnCargar = new Button();
             menuStrip1 = new MenuStrip();
             cuentaToolStripMenuItem = new ToolStripMenuItem();
             cerrarSesionToolStripMenuItem = new ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudFrecuencia).BeginInit();
             tabPage2.SuspendLayout();
             tabControl1.SuspendLayout();
+            tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(345, 58);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(374, 150);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellClick += dataGridView1_CellClick;
-            // 
-            // btnCargar
-            // 
-            btnCargar.Location = new Point(345, 29);
-            btnCargar.Name = "btnCargar";
-            btnCargar.Size = new Size(103, 23);
-            btnCargar.TabIndex = 1;
-            btnCargar.Text = "Cargar Habitos";
-            btnCargar.UseVisualStyleBackColor = true;
-            btnCargar.Click += btnCargar_Click;
-            // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(186, 70);
+            txtNombre.Location = new Point(407, 70);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(100, 23);
             txtNombre.TabIndex = 2;
@@ -85,7 +67,7 @@
             // 
             // txtDescripcion
             // 
-            txtDescripcion.Location = new Point(186, 110);
+            txtDescripcion.Location = new Point(407, 110);
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.Size = new Size(100, 23);
             txtDescripcion.TabIndex = 3;
@@ -93,7 +75,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(31, 74);
+            label1.Location = new Point(252, 74);
             label1.Name = "label1";
             label1.Size = new Size(109, 15);
             label1.TabIndex = 4;
@@ -103,7 +85,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(31, 114);
+            label2.Location = new Point(252, 114);
             label2.Name = "label2";
             label2.Size = new Size(126, 15);
             label2.TabIndex = 5;
@@ -113,7 +95,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(31, 187);
+            label3.Location = new Point(252, 187);
             label3.Name = "label3";
             label3.Size = new Size(74, 15);
             label3.TabIndex = 6;
@@ -122,7 +104,7 @@
             // 
             // nudFrecuencia
             // 
-            nudFrecuencia.Location = new Point(186, 149);
+            nudFrecuencia.Location = new Point(407, 149);
             nudFrecuencia.Name = "nudFrecuencia";
             nudFrecuencia.Size = new Size(100, 23);
             nudFrecuencia.TabIndex = 7;
@@ -130,7 +112,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(31, 150);
+            label4.Location = new Point(252, 150);
             label4.Name = "label4";
             label4.Size = new Size(129, 15);
             label4.TabIndex = 8;
@@ -139,34 +121,13 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(131, 228);
+            btnAgregar.Location = new Point(352, 228);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 10;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click;
-            // 
-            // btnEliminar
-            // 
-            btnEliminar.Location = new Point(345, 231);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(144, 24);
-            btnEliminar.TabIndex = 11;
-            btnEliminar.Text = "Eliminar seleccionado";
-            btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += btnEliminar_Click;
-            // 
-            // btnEditar
-            // 
-            btnEditar.Location = new Point(604, 231);
-            btnEditar.Margin = new Padding(2);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(78, 20);
-            btnEditar.TabIndex = 12;
-            btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = true;
-            btnEditar.Click += btnEditar_Click;
             // 
             // process1
             // 
@@ -183,13 +144,8 @@
             // tabPage2
             // 
             tabPage2.Controls.Add(dtpFechaObjetivo);
-            tabPage2.Controls.Add(lblUsuarioActivo);
-            tabPage2.Controls.Add(btnEliminar);
             tabPage2.Controls.Add(btnAgregar);
-            tabPage2.Controls.Add(btnEditar);
-            tabPage2.Controls.Add(dataGridView1);
             tabPage2.Controls.Add(label4);
-            tabPage2.Controls.Add(btnCargar);
             tabPage2.Controls.Add(nudFrecuencia);
             tabPage2.Controls.Add(txtNombre);
             tabPage2.Controls.Add(label3);
@@ -201,14 +157,14 @@
             tabPage2.Padding = new Padding(3);
             tabPage2.Size = new Size(768, 298);
             tabPage2.TabIndex = 1;
-            tabPage2.Text = "CARGAR";
+            tabPage2.Text = "AGREGAR";
             tabPage2.UseVisualStyleBackColor = true;
             tabPage2.Click += tabPage2_Click;
             // 
             // dtpFechaObjetivo
             // 
             dtpFechaObjetivo.Format = DateTimePickerFormat.Short;
-            dtpFechaObjetivo.Location = new Point(186, 185);
+            dtpFechaObjetivo.Location = new Point(407, 185);
             dtpFechaObjetivo.Name = "dtpFechaObjetivo";
             dtpFechaObjetivo.Size = new Size(100, 23);
             dtpFechaObjetivo.TabIndex = 14;
@@ -217,7 +173,7 @@
             // lblUsuarioActivo
             // 
             lblUsuarioActivo.AutoSize = true;
-            lblUsuarioActivo.Location = new Point(651, 3);
+            lblUsuarioActivo.Location = new Point(12, 9);
             lblUsuarioActivo.Name = "lblUsuarioActivo";
             lblUsuarioActivo.Size = new Size(68, 15);
             lblUsuarioActivo.TabIndex = 13;
@@ -228,12 +184,68 @@
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage1);
             tabControl1.Location = new Point(12, 27);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
             tabControl1.Size = new Size(776, 326);
             tabControl1.TabIndex = 14;
             tabControl1.SelectedIndexChanged += tabControl1_SelectedIndexChanged;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Controls.Add(btnEliminar);
+            tabPage1.Controls.Add(btnEditar);
+            tabPage1.Controls.Add(dataGridView1);
+            tabPage1.Controls.Add(btnCargar);
+            tabPage1.Location = new Point(4, 24);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(768, 298);
+            tabPage1.TabIndex = 2;
+            tabPage1.Text = "HABITOS";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            btnEliminar.Location = new Point(197, 238);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(144, 24);
+            btnEliminar.TabIndex = 15;
+            btnEliminar.Text = "Eliminar seleccionado";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
+            // 
+            // btnEditar
+            // 
+            btnEditar.Location = new Point(456, 238);
+            btnEditar.Margin = new Padding(2);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(78, 20);
+            btnEditar.TabIndex = 16;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(197, 65);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 62;
+            dataGridView1.Size = new Size(374, 150);
+            dataGridView1.TabIndex = 13;
+            dataGridView1.CellContentClick += dataGridView1_CellClick;
+            // 
+            // btnCargar
+            // 
+            btnCargar.Location = new Point(197, 36);
+            btnCargar.Name = "btnCargar";
+            btnCargar.Size = new Size(103, 23);
+            btnCargar.TabIndex = 14;
+            btnCargar.Text = "Cargar Habitos";
+            btnCargar.UseVisualStyleBackColor = true;
+            btnCargar.Click += btnCargar_Click;
             // 
             // menuStrip1
             // 
@@ -267,16 +279,18 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 449);
             Controls.Add(tabControl1);
+            Controls.Add(lblUsuarioActivo);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudFrecuencia).EndInit();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
             tabControl1.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
@@ -284,9 +298,6 @@
         }
 
         #endregion
-
-        private DataGridView dataGridView1;
-        private Button btnCargar;
         private TextBox txtNombre;
         private TextBox txtDescripcion;
         private Label label1;
@@ -295,8 +306,6 @@
         private NumericUpDown nudFrecuencia;
         private Label label4;
         private Button btnAgregar;
-        private Button btnEliminar;
-        private Button btnEditar;
         private System.Diagnostics.Process process1;
         private TabControl tabControl1;
         private TabPage tabPage2;
@@ -305,5 +314,10 @@
         private ToolStripMenuItem cerrarSesionToolStripMenuItem;
         private Label lblUsuarioActivo;
         private DateTimePicker dtpFechaObjetivo;
+        private TabPage tabPage1;
+        private Button btnEliminar;
+        private Button btnEditar;
+        private DataGridView dataGridView1;
+        private Button btnCargar;
     }
 }
