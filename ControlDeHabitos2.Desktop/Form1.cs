@@ -400,6 +400,7 @@ namespace ControlDeHabitos2.Desktop
             {
                 Sesion.UsuarioId = null;
                 Sesion.NombreUsuario = null;
+                LimpiarFormularioHabito();
                 MessageBox.Show("Sesión cerrada correctamente.");
 
                 this.Hide();
@@ -541,6 +542,16 @@ namespace ControlDeHabitos2.Desktop
                     columna.Visible = false;
             }
         }
+
+        private void LimpiarFormularioHabito()
+        {
+            txtNombre.Text = "";
+            nudFrecuencia.Value = 0;
+            dtpFechaObjetivo.Value = DateTime.Now;
+            txtDescripcion.Text = "";
+            habitoSeleccionado = null;
+        }
+
 
 
 
