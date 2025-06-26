@@ -26,21 +26,23 @@
 
 ## 📂 Estructura del proyecto
 
-ControlDeHabitos2
-├── ControlDeHabitos2.API # Backend API
-│ ├── Controllers # Controladores (Usuarios, Hábitos)
-│ ├── Data # DbContext y configuración
-│ ├── Interfaces # Interfaces de repositorio y servicio
-│ ├── Migrations # Migraciones de la base de datos
-│ ├── Models # Entidades de dominio
-│ ├── Repositories # Repositorios concretos
-│ └── Services # Lógica de negocio
-│
-├── ControlDeHabitos2.Desktop # Frontend WinForms
-│ ├── Form1.cs # Pantalla principal con pestañas
-│ ├── LoginForm.cs # Pantalla de login
-│ ├── RegisterForm.cs # Pantalla de registro
-│ └── Sesion.cs # Clase para mantener sesión activa
+## 📂 Estructura del proyecto
+
+ControlDeHabitos2  
+├── ControlDeHabitos2.API  # Backend API (ASP.NET Core)  
+│   ├── Controllers         # Controladores (Usuarios, Hábitos)  
+│   ├── Data                # DbContext y configuración  
+│   ├── Interfaces          # Interfaces de repositorio y servicio  
+│   ├── Migrations          # Migraciones de la base de datos  
+│   ├── Models              # Entidades de dominio  
+│   ├── Repositories        # Repositorios concretos  
+│   └── Services            # Lógica de negocio  
+│  
+└── ControlDeHabitos2.Desktop  # Frontend (WinForms)  
+    ├── Form1.cs            # Pantalla principal con pestañas  
+    ├── LoginForm.cs        # Pantalla de login  
+    ├── RegisterForm.cs     # Pantalla de registro  
+    └── Sesion.cs           # Clase para mantener sesión activa
 
 ## 📊 Diagrama de negocio
 
