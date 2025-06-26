@@ -26,7 +26,15 @@ namespace ControlDeHabitos2.Desktop
             while (ex != null)
             {
                 mensajes.Add(ex.Message);
-                ex = ex.InnerException;
+                if (ex.InnerException != null)
+                {
+                    ex = ex.InnerException;
+                }
+                else
+                {
+                    break;
+                }
+;
             }
             return string.Join(" → ", mensajes);
         }
@@ -87,6 +95,16 @@ namespace ControlDeHabitos2.Desktop
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void chkMostrar_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chkMostrar_CheckedChanged_1(object sender, EventArgs e)
+        {
+            txtContraseña.UseSystemPasswordChar = !chkMostrar.Checked;
         }
 
     }
