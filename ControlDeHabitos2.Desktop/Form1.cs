@@ -14,6 +14,7 @@ namespace ControlDeHabitos2.Desktop
         public Form1()
         {
             InitializeComponent();
+            dataGridView1.DataBindingComplete += dataGridView1_DataBindingComplete;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -524,6 +525,24 @@ namespace ControlDeHabitos2.Desktop
             if (nuevaAltura > txt.MinimumSize.Height)
                 txt.Height = nuevaAltura;
         }
+        private void dataGridView1_DataBindingComplete(object? sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            OcultarColumnaSiExiste("Id");
+            OcultarColumnaSiExiste("UsuarioId");
+            OcultarColumnaSiExiste("FechaUltimaCompletacion");
+        }
+
+        private void OcultarColumnaSiExiste(string nombre)
+        {
+            if (dataGridView1.Columns.Contains(nombre))
+            {
+                var columna = dataGridView1.Columns[nombre];
+                if (columna != null)
+                    columna.Visible = false;
+            }
+        }
+
+
 
     }
 }
