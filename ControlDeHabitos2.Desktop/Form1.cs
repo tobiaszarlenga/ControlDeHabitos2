@@ -132,6 +132,7 @@ namespace ControlDeHabitos2.Desktop
                 {
                     MessageBox.Show("Hábito agregado correctamente.");
                     btnCargar.PerformClick();
+                    LimpiarFormularioHabito();
                 }
                 else
                 {
