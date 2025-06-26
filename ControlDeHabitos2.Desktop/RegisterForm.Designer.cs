@@ -34,12 +34,13 @@
             txtContraseña = new TextBox();
             btnRegistrar = new Button();
             btnCancelar = new Button();
+            chkMostrar = new CheckBox();
             SuspendLayout();
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(120, 97);
+            lblNombre.Location = new Point(120, 76);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(110, 15);
             lblNombre.TabIndex = 0;
@@ -48,7 +49,7 @@
             // lblContraseña
             // 
             lblContraseña.AutoSize = true;
-            lblContraseña.Location = new Point(120, 142);
+            lblContraseña.Location = new Point(120, 121);
             lblContraseña.Name = "lblContraseña";
             lblContraseña.Size = new Size(67, 15);
             lblContraseña.TabIndex = 1;
@@ -56,7 +57,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(245, 94);
+            txtNombre.Location = new Point(245, 73);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(100, 23);
             txtNombre.TabIndex = 2;
@@ -64,7 +65,7 @@
             // 
             // txtContraseña
             // 
-            txtContraseña.Location = new Point(245, 139);
+            txtContraseña.Location = new Point(245, 118);
             txtContraseña.Name = "txtContraseña";
             txtContraseña.Size = new Size(100, 23);
             txtContraseña.TabIndex = 3;
@@ -90,11 +91,23 @@
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
+            // chkMostrar
+            // 
+            chkMostrar.AutoSize = true;
+            chkMostrar.Location = new Point(245, 158);
+            chkMostrar.Name = "chkMostrar";
+            chkMostrar.Size = new Size(130, 19);
+            chkMostrar.TabIndex = 6;
+            chkMostrar.Text = "Mostrar Contraseña";
+            chkMostrar.UseVisualStyleBackColor = true;
+            chkMostrar.CheckedChanged += chkMostrar_CheckedChanged_1;
+            // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(492, 268);
+            Controls.Add(chkMostrar);
             Controls.Add(btnCancelar);
             Controls.Add(btnRegistrar);
             Controls.Add(txtContraseña);
@@ -115,5 +128,6 @@
         private TextBox txtContraseña;
         private Button btnRegistrar;
         private Button btnCancelar;
+        private CheckBox chkMostrar;
     }
 }
