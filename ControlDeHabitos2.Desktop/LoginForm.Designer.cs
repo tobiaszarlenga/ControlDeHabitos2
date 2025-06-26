@@ -36,6 +36,7 @@
             btnLogin = new Button();
             label3 = new Label();
             label4 = new Label();
+            label5 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -57,7 +58,7 @@
             // txtContraseña
             // 
             txtContraseña.Location = new Point(216, 114);
-            txtContraseña.Margin = new Padding(2, 2, 2, 2);
+            txtContraseña.Margin = new Padding(2);
             txtContraseña.Name = "txtContraseña";
             txtContraseña.Size = new Size(94, 23);
             txtContraseña.TabIndex = 4;
@@ -66,7 +67,7 @@
             // txtUsuario
             // 
             txtUsuario.Location = new Point(216, 68);
-            txtUsuario.Margin = new Padding(2, 2, 2, 2);
+            txtUsuario.Margin = new Padding(2);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.Size = new Size(94, 23);
             txtUsuario.TabIndex = 3;
@@ -74,7 +75,7 @@
             // btnRegistrarse
             // 
             btnRegistrarse.Location = new Point(216, 158);
-            btnRegistrarse.Margin = new Padding(2, 2, 2, 2);
+            btnRegistrarse.Margin = new Padding(2);
             btnRegistrarse.Name = "btnRegistrarse";
             btnRegistrarse.Size = new Size(93, 20);
             btnRegistrarse.TabIndex = 6;
@@ -85,7 +86,7 @@
             // btnLogin
             // 
             btnLogin.Location = new Point(102, 158);
-            btnLogin.Margin = new Padding(2, 2, 2, 2);
+            btnLogin.Margin = new Padding(2);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(94, 20);
             btnLogin.TabIndex = 5;
@@ -113,11 +114,23 @@
             label4.TabIndex = 10;
             label4.Text = "Contraseña";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(143, 26);
+            label5.Name = "label5";
+            label5.Size = new Size(138, 19);
+            label5.TabIndex = 11;
+            label5.Text = "INICIAR SESION";
+            label5.Click += label5_Click;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(432, 225);
+            Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(btnLogin);
@@ -126,7 +139,7 @@
             Controls.Add(txtContraseña);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "LoginForm";
             Text = "LoginForm";
             Load += LoginForm_Load;
@@ -144,5 +157,6 @@
         private Button btnLogin;
         private Label label3;
         private Label label4;
+        private Label label5;
     }
 }

@@ -52,6 +52,7 @@
             menuStrip1 = new MenuStrip();
             cuentaToolStripMenuItem = new ToolStripMenuItem();
             cerrarSesionToolStripMenuItem = new ToolStripMenuItem();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)nudFrecuencia).BeginInit();
             tabCargar.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -62,7 +63,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(407, 93);
+            txtNombre.Location = new Point(379, 103);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(137, 23);
             txtNombre.TabIndex = 0;
@@ -71,7 +72,7 @@
             // txtDescripcion
             // 
             txtDescripcion.AcceptsReturn = true;
-            txtDescripcion.Location = new Point(407, 211);
+            txtDescripcion.Location = new Point(379, 221);
             txtDescripcion.Multiline = true;
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.ScrollBars = ScrollBars.Vertical;
@@ -82,7 +83,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(252, 96);
+            label1.Location = new Point(224, 106);
             label1.Name = "label1";
             label1.Size = new Size(109, 15);
             label1.TabIndex = 4;
@@ -92,7 +93,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(252, 211);
+            label2.Location = new Point(224, 221);
             label2.Name = "label2";
             label2.Size = new Size(126, 15);
             label2.TabIndex = 5;
@@ -102,7 +103,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(252, 170);
+            label3.Location = new Point(224, 180);
             label3.Name = "label3";
             label3.Size = new Size(74, 15);
             label3.TabIndex = 6;
@@ -111,7 +112,7 @@
             // 
             // nudFrecuencia
             // 
-            nudFrecuencia.Location = new Point(407, 132);
+            nudFrecuencia.Location = new Point(379, 142);
             nudFrecuencia.Name = "nudFrecuencia";
             nudFrecuencia.Size = new Size(36, 23);
             nudFrecuencia.TabIndex = 1;
@@ -119,7 +120,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(252, 133);
+            label4.Location = new Point(224, 143);
             label4.Name = "label4";
             label4.Size = new Size(129, 15);
             label4.TabIndex = 8;
@@ -128,7 +129,7 @@
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(252, 260);
+            btnAgregar.Location = new Point(224, 270);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(75, 23);
             btnAgregar.TabIndex = 5;
@@ -173,7 +174,7 @@
             // 
             // btnGuardarCambios
             // 
-            btnGuardarCambios.Location = new Point(252, 260);
+            btnGuardarCambios.Location = new Point(224, 270);
             btnGuardarCambios.Name = "btnGuardarCambios";
             btnGuardarCambios.Size = new Size(142, 23);
             btnGuardarCambios.TabIndex = 4;
@@ -185,7 +186,7 @@
             // lblEditando
             // 
             lblEditando.AutoSize = true;
-            lblEditando.Location = new Point(283, 63);
+            lblEditando.Location = new Point(255, 73);
             lblEditando.Name = "lblEditando";
             lblEditando.Size = new Size(198, 15);
             lblEditando.TabIndex = 16;
@@ -195,9 +196,10 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(335, 23);
+            label5.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(307, 33);
             label5.Name = "label5";
-            label5.Size = new Size(90, 15);
+            label5.Size = new Size(135, 19);
             label5.TabIndex = 15;
             label5.Text = "NUEVO HABITO";
             label5.Click += label5_Click;
@@ -205,7 +207,7 @@
             // dtpFechaObjetivo
             // 
             dtpFechaObjetivo.Format = DateTimePickerFormat.Short;
-            dtpFechaObjetivo.Location = new Point(407, 168);
+            dtpFechaObjetivo.Location = new Point(379, 178);
             dtpFechaObjetivo.Name = "dtpFechaObjetivo";
             dtpFechaObjetivo.Size = new Size(95, 23);
             dtpFechaObjetivo.TabIndex = 2;
@@ -235,6 +237,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(label6);
             tabPage1.Controls.Add(btnEliminar);
             tabPage1.Controls.Add(btnEditar);
             tabPage1.Controls.Add(dataGridView1);
@@ -249,7 +252,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(128, 238);
+            btnEliminar.Location = new Point(119, 296);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(144, 24);
             btnEliminar.TabIndex = 15;
@@ -259,7 +262,7 @@
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(307, 238);
+            btnEditar.Location = new Point(298, 296);
             btnEditar.Margin = new Padding(2, 2, 2, 2);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(78, 23);
@@ -271,7 +274,7 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(128, 65);
+            dataGridView1.Location = new Point(119, 123);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 62;
             dataGridView1.Size = new Size(530, 150);
@@ -280,7 +283,7 @@
             // 
             // btnCargar
             // 
-            btnCargar.Location = new Point(128, 24);
+            btnCargar.Location = new Point(119, 82);
             btnCargar.Name = "btnCargar";
             btnCargar.Size = new Size(103, 23);
             btnCargar.TabIndex = 14;
@@ -315,6 +318,17 @@
             cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             cerrarSesionToolStripMenuItem.Click += cerrarSesionToolStripMenuItem_Click;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(313, 34);
+            label6.Name = "label6";
+            label6.Size = new Size(118, 19);
+            label6.TabIndex = 17;
+            label6.Text = "TUS HABITOS";
+            label6.Click += label6_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -332,6 +346,7 @@
             tabCargar.PerformLayout();
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
+            tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -364,5 +379,6 @@
         private Label label5;
         private Label lblEditando;
         private Button btnGuardarCambios;
+        private Label label6;
     }
 }

@@ -21,7 +21,7 @@ namespace ControlDeHabitos2.Desktop
         {
             string nombre = txtUsuario.Text.Trim();
             string contraseña = txtContraseña.Text;
-           
+
 
             if (string.IsNullOrWhiteSpace(nombre) || string.IsNullOrWhiteSpace(contraseña))
             {
@@ -75,7 +75,12 @@ namespace ControlDeHabitos2.Desktop
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            txtUsuario.Focus(); 
+            txtUsuario.Focus();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

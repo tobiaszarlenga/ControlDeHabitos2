@@ -552,9 +552,10 @@ namespace ControlDeHabitos2.Desktop
             habitoSeleccionado = null;
         }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
 
-
-
+        }
     }
 }
 

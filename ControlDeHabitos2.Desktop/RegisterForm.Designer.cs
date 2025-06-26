@@ -35,6 +35,7 @@
             btnRegistrar = new Button();
             btnCancelar = new Button();
             chkMostrar = new CheckBox();
+            label1 = new Label();
             SuspendLayout();
             // 
             // lblNombre
@@ -102,11 +103,22 @@
             chkMostrar.UseVisualStyleBackColor = true;
             chkMostrar.CheckedChanged += chkMostrar_CheckedChanged_1;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(183, 29);
+            label1.Name = "label1";
+            label1.Size = new Size(103, 19);
+            label1.TabIndex = 7;
+            label1.Text = "REGISRTAR";
+            // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(492, 268);
+            Controls.Add(label1);
             Controls.Add(chkMostrar);
             Controls.Add(btnCancelar);
             Controls.Add(btnRegistrar);
@@ -129,5 +141,6 @@
         private Button btnRegistrar;
         private Button btnCancelar;
         private CheckBox chkMostrar;
+        private Label label1;
     }
 }
